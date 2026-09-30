@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { AwardIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,11 +15,12 @@ import {
   SKILL_LABELS,
   SKILLS,
   type CharacterStats,
+  characterProficiencyBonus,
   formatModifier,
-  proficiencyBonus,
   saveBonus,
   skillBonus,
 } from "../rules";
+import { ProficiencyFields } from "./proficiency-fields";
 import { FormError, SectionCard } from "./section-card";
 import { useFormAction } from "./use-form-action";
 
@@ -38,11 +38,14 @@ export function ProficienciesSection({ character }: Props) {
     () => setEditing(false),
   );
 
-  const bonus = proficiencyBonus(character.level);
+  const bonus = characterProficiencyBonus(character);
+  // Si alguien lo ha forzado conviene que se note: si no, al subir de nivel
+  // parecería que la app no lo actualiza.
+  const edited = character.proficiencyBonusOverride !== null ? " (editado)" : "";
 
   return (
     <SectionCard
-      title={`Competencias · bonificador ${formatModifier(bonus)}`}
+      title={`Competencias · bonificador ${formatModifier(bonus)}${edited}`}
       icon={AwardIcon}
       editing={editing}
       onToggleEdit={() => setEditing(!editing)}
@@ -51,63 +54,11 @@ export function ProficienciesSection({ character }: Props) {
         <form action={submit} className="flex flex-col gap-5">
           <input type="hidden" name="characterId" value={character.id} />
 
-          <fieldset className="flex flex-col gap-2">
-            <legend className="mb-2 text-xs tracking-wide text-muted-foreground uppercase">
-              Tiradas de salvación
-            </legend>
-            <div className="grid grid-cols-2 gap-2">
-              {ABILITIES.map((ability) => (
-                <Label
-                  key={ability}
-                  className="flex items-center gap-2 font-normal"
-                >
-                  <Checkbox
-                    name="saveProficiencies"
-                    value={ability}
-                    defaultChecked={character.saveProficiencies.includes(
-                      ability,
-                    )}
-                  />
-                  {ABILITY_LABELS[ability]}
-                </Label>
-              ))}
-            </div>
-          </fieldset>
-
-          <Separator />
-
-          <fieldset className="flex flex-col gap-2">
-            <legend className="mb-2 text-xs tracking-wide text-muted-foreground uppercase">
-              Habilidades
-            </legend>
-            <p className="mb-2 text-xs text-muted-foreground">
-              La segunda casilla es experiencia: dobla el bonificador. Solo
-              cuenta si además marcas competencia.
-            </p>
-            <ul className="flex flex-col gap-1.5">
-              {SKILLS.map((skill) => (
-                <li key={skill} className="flex items-center gap-3 text-sm">
-                  <Checkbox
-                    name="skillProficiencies"
-                    value={skill}
-                    defaultChecked={character.skillProficiencies.includes(skill)}
-                    aria-label={`Competente en ${SKILL_LABELS[skill]}`}
-                  />
-                  <Checkbox
-                    name="skillExpertise"
-                    value={skill}
-                    defaultChecked={character.skillExpertise.includes(skill)}
-                    aria-label={`Experiencia en ${SKILL_LABELS[skill]}`}
-                    className="rounded-full"
-                  />
-                  <span className="flex-1">{SKILL_LABELS[skill]}</span>
-                  <span className="text-xs text-muted-foreground">
-                    {ABILITY_SHORT[SKILL_ABILITY[skill]]}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </fieldset>
+          <ProficiencyFields
+            scores={character}
+            level={character.level}
+            defaults={character}
+          />
 
           <Separator />
 

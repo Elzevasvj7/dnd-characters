@@ -45,6 +45,7 @@ import {
   loreSchema,
   noteSchema,
   personalitySchema,
+  PROFICIENCY_LIST_KEYS,
   proficienciesSchema,
   spellcastingSchema,
   spellSchema,
@@ -116,7 +117,9 @@ export async function createCharacterAction(
   _prev: FormState,
   formData: FormData,
 ): Promise<FormState> {
-  const parsed = characterSchema.safeParse(formToObject(formData));
+  const parsed = characterSchema.safeParse(
+    formToObjectWithLists(formData, PROFICIENCY_LIST_KEYS),
+  );
   if (!parsed.success) return { error: parsed.error.issues[0].message };
 
   const file = formData.get("image");
@@ -180,7 +183,7 @@ export async function updateProficienciesAction(
   formData: FormData,
 ): Promise<FormState> {
   return runSectionUpdate(formData, proficienciesSchema, updateProficiencies, {
-    listKeys: ["saveProficiencies", "skillProficiencies", "skillExpertise"],
+    listKeys: PROFICIENCY_LIST_KEYS,
   });
 }
 

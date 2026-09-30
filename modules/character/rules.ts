@@ -146,7 +146,11 @@ export function abilityModifier(score: number): number {
   return Math.floor((score - 10) / 2);
 }
 
-/** +2 a nivel 1-4, +3 a 5-8, +4 a 9-12, +5 a 13-16, +6 a 17-20. */
+/**
+ * El del manual: +2 a nivel 1-4, +3 a 5-8, +4 a 9-12, +5 a 13-16, +6 a 17-20.
+ * Para calcular bonos usa `characterProficiencyBonus`, que respeta el valor
+ * editado a mano.
+ */
 export function proficiencyBonus(level: number): number {
   return 2 + Math.floor((Math.min(Math.max(level, 1), 20) - 1) / 4);
 }
@@ -158,6 +162,7 @@ export function formatModifier(value: number): string {
 
 export type CharacterStats = AbilityScores & {
   level: number;
+  proficiencyBonusOverride: number | null;
   saveProficiencies: Ability[];
   skillProficiencies: Skill[];
   skillExpertise: Skill[];
@@ -167,15 +172,25 @@ export type CharacterStats = AbilityScores & {
   spellAttackBonusOverride: number | null;
 };
 
+/**
+ * El que se usa de verdad: el editado si lo hay (reglas caseras que lo suben
+ * antes de tiempo), y si no el que toca por nivel.
+ */
+export function characterProficiencyBonus(
+  stats: Pick<CharacterStats, "level" | "proficiencyBonusOverride">,
+): number {
+  return stats.proficiencyBonusOverride ?? proficiencyBonus(stats.level);
+}
+
 export function saveBonus(stats: CharacterStats, ability: Ability): number {
   const base = abilityModifier(abilityScore(stats, ability));
   const proficient = stats.saveProficiencies.includes(ability);
-  return base + (proficient ? proficiencyBonus(stats.level) : 0);
+  return base + (proficient ? characterProficiencyBonus(stats) : 0);
 }
 
 export function skillBonus(stats: CharacterStats, skill: Skill): number {
   const base = abilityModifier(abilityScore(stats, SKILL_ABILITY[skill]));
-  const bonus = proficiencyBonus(stats.level);
+  const bonus = characterProficiencyBonus(stats);
 
   // La experiencia (expertise) dobla la competencia, no la sustituye. Y solo
   // aplica si además eres competente: sin competencia no hay nada que doblar.
@@ -199,7 +214,7 @@ export function spellSaveDc(stats: CharacterStats): number | null {
   if (!stats.spellcastingAbility) return null;
   return (
     8 +
-    proficiencyBonus(stats.level) +
+    characterProficiencyBonus(stats) +
     abilityModifier(abilityScore(stats, stats.spellcastingAbility))
   );
 }
@@ -210,7 +225,7 @@ export function spellAttackBonus(stats: CharacterStats): number | null {
   }
   if (!stats.spellcastingAbility) return null;
   return (
-    proficiencyBonus(stats.level) +
+    characterProficiencyBonus(stats) +
     abilityModifier(abilityScore(stats, stats.spellcastingAbility))
   );
 }

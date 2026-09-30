@@ -57,17 +57,10 @@ export const combatSchema = z.object({
   initiativeOverride: optionalInt(-20, 20),
 });
 
-/** El alta pide las tres secciones de una vez; la edición, una a una. */
-export const characterSchema = z.object({
-  ...identitySchema.shape,
-  ...abilitiesSchema.shape,
-  ...combatSchema.shape,
-});
 
 export type IdentityInput = z.infer<typeof identitySchema>;
 export type AbilitiesInput = z.infer<typeof abilitiesSchema>;
 export type CombatInput = z.infer<typeof combatSchema>;
-export type CharacterInput = z.infer<typeof characterSchema>;
 
 // ---------------------------------------------------------------------------
 // Conjuros
@@ -175,11 +168,34 @@ export function formToObject(formData: FormData): Record<string, unknown> {
 // ---------------------------------------------------------------------------
 
 export const proficienciesSchema = z.object({
+  // Vacío = el que toca por nivel. Solo se rellena por reglas caseras.
+  proficiencyBonusOverride: optionalInt(0, 20),
   saveProficiencies: z.array(z.enum(ABILITIES)).default([]),
   skillProficiencies: z.array(z.enum(SKILLS)).default([]),
   skillExpertise: z.array(z.enum(SKILLS)).default([]),
   otherProficiencies: z.string().trim().max(2000).optional(),
 });
+
+/** Los campos que llegan repetidos (checkboxes con el mismo `name`). */
+export const PROFICIENCY_LIST_KEYS = [
+  "saveProficiencies",
+  "skillProficiencies",
+  "skillExpertise",
+] as const;
+
+/**
+ * El alta pide de una vez lo que en la ficha se edita por secciones: con las
+ * características y las competencias delante, los bonos ya salen bien desde
+ * el primer momento.
+ */
+export const characterSchema = z.object({
+  ...identitySchema.shape,
+  ...abilitiesSchema.shape,
+  ...combatSchema.shape,
+  ...proficienciesSchema.shape,
+});
+
+export type CharacterInput = z.infer<typeof characterSchema>;
 
 export const personalitySchema = z.object({
   personalityTraits: z.string().trim().max(2000).optional(),

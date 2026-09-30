@@ -95,6 +95,7 @@ export type Database = {
           personality_traits: string | null
           platinum: number
           player_name: string | null
+          proficiency_bonus_override: number | null
           race: string | null
           save_proficiencies: Database["public"]["Enums"]["Ability"][]
           silver: number
@@ -156,6 +157,7 @@ export type Database = {
           personality_traits?: string | null
           platinum?: number
           player_name?: string | null
+          proficiency_bonus_override?: number | null
           race?: string | null
           save_proficiencies?: Database["public"]["Enums"]["Ability"][]
           silver?: number
@@ -217,6 +219,7 @@ export type Database = {
           personality_traits?: string | null
           platinum?: number
           player_name?: string | null
+          proficiency_bonus_override?: number | null
           race?: string | null
           save_proficiencies?: Database["public"]["Enums"]["Ability"][]
           silver?: number

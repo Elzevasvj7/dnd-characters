@@ -45,6 +45,7 @@ export async function createCharacter(
       ...identityRow(input),
       ...abilitiesRow(input),
       ...combatRow(input),
+      ...proficienciesRow(input),
       owner_id: user.id,
       image_path: imagePath,
     })
@@ -195,7 +196,7 @@ async function updateOwned(
 
 // Las columnas son snake_case y los formularios camelCase. La traducción de
 // cada sección vive en una función porque el alta y la edición comparten las
-// mismas tres (identidad, puntuaciones y combate).
+// mismas cuatro (identidad, puntuaciones, combate y competencias).
 
 function identityRow(input: IdentityInput) {
   return {
@@ -240,6 +241,23 @@ function combatRow(input: CombatInput) {
     death_save_successes: input.deathSaveSuccesses,
     death_save_failures: input.deathSaveFailures,
     initiative_override: input.initiativeOverride ?? null,
+  } satisfies TablesUpdate<"characters">;
+}
+
+function proficienciesRow(input: ProficienciesInput) {
+  // La experiencia sin competencia no existe en las reglas: si se cuela una,
+  // el bono saldría doblado sobre una base que no tienes. La filtramos aquí y
+  // no en el formulario, porque el formulario no es la única puerta de entrada.
+  const skillExpertise = input.skillExpertise.filter((skill) =>
+    input.skillProficiencies.includes(skill),
+  );
+
+  return {
+    proficiency_bonus_override: input.proficiencyBonusOverride ?? null,
+    save_proficiencies: input.saveProficiencies,
+    skill_proficiencies: input.skillProficiencies,
+    skill_expertise: skillExpertise,
+    other_proficiencies: input.otherProficiencies ?? null,
   } satisfies TablesUpdate<"characters">;
 }
 
@@ -319,20 +337,7 @@ export async function updateProficiencies(
   input: ProficienciesInput,
 ) {
   const user = await requireUser();
-
-  // La experiencia sin competencia no existe en las reglas: si se cuela una,
-  // el bono saldría doblado sobre una base que no tienes. La filtramos aquí y
-  // no en el formulario, porque el formulario no es la única puerta de entrada.
-  const skillExpertise = input.skillExpertise.filter((skill) =>
-    input.skillProficiencies.includes(skill),
-  );
-
-  await updateOwned(characterId, user.id, {
-    save_proficiencies: input.saveProficiencies,
-    skill_proficiencies: input.skillProficiencies,
-    skill_expertise: skillExpertise,
-    other_proficiencies: input.otherProficiencies ?? null,
-  });
+  await updateOwned(characterId, user.id, proficienciesRow(input));
 }
 
 export async function updatePersonality(

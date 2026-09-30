@@ -19,6 +19,7 @@ const CHARACTER_COLUMNS = `
   temporaryHp:temporary_hp, hitDice:hit_dice, hitDiceSpent:hit_dice_spent,
   deathSaveSuccesses:death_save_successes, deathSaveFailures:death_save_failures,
   initiativeOverride:initiative_override,
+  proficiencyBonusOverride:proficiency_bonus_override,
   spellSaveDcOverride:spell_save_dc_override,
   spellAttackBonusOverride:spell_attack_bonus_override,
   saveProficiencies:save_proficiencies, skillProficiencies:skill_proficiencies,
