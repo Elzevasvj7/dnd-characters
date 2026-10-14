@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect, unstable_rethrow } from "next/navigation";
 import type { z } from "zod";
+import { parseCharacterSheetWithGemini, type ParsedSheetData } from "./ocr";
 import {
   addAttack,
   addItem,
@@ -43,6 +44,7 @@ import {
   imageSchema,
   itemSchema,
   loreSchema,
+  MAX_SHEET_FILES,
   noteSchema,
   personalitySchema,
   PROFICIENCY_LIST_KEYS,
@@ -52,6 +54,8 @@ import {
   spellSlotSchema,
 } from "./schemas";
 import type { FormState } from "./types";
+import { createClient } from "@/lib/supabase/server";
+import { getSignedImageUrl } from "@/lib/storage";
 
 /**
  * Toda action es un endpoint POST público: cualquiera puede invocarla sin pasar
@@ -131,7 +135,7 @@ export async function createCharacterAction(
   }
 
   let characterId: string;
-  try {
+  try {console.log("parsed", parsed.data);
     const created = await createCharacter(parsed.data, image);
     characterId = created.id;
   } catch (error) {
@@ -435,4 +439,61 @@ export async function toggleItemEquippedAction(formData: FormData) {
   if (typeof characterId === "string") {
     revalidatePath(characterPath(characterId));
   }
+}
+
+// ---------------------------------------------------------------------------
+// OCR con Gemini API
+// ---------------------------------------------------------------------------
+
+export type ParseSheetActionResult =
+  | { ok: true; data: ParsedSheetData }
+  | { ok: false; error: string };
+
+export async function parseCharacterSheetAction(
+  formData: FormData,
+): Promise<ParseSheetActionResult> {
+  const fileEntries = formData.getAll("sheet");
+  const files = fileEntries.filter(
+    (entry): entry is File => entry instanceof File && entry.size > 0,
+  );
+
+  if (files.length === 0) {
+    return { ok: false, error: "No se ha adjuntado ninguna hoja de personaje" };
+  }
+
+  if (files.length > MAX_SHEET_FILES) {
+    return {
+      ok: false,
+      error: `Demasiados archivos: el máximo permitido es ${MAX_SHEET_FILES}`,
+    };
+  }
+
+  try {
+    const data = await parseCharacterSheetWithGemini(files);
+    return { ok: true, data };
+  } catch (error) {
+    unstable_rethrow(error);
+    return {
+      ok: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : "Error desconocido al procesar la hoja de personaje",
+    };
+  }
+}
+
+export async function downloadCharacter(id: string) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("characters")
+    .select("*")
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!data) throw new Error("Personaje no encontrado");
+
+  const character = data;  
+  return character;
+
 }
