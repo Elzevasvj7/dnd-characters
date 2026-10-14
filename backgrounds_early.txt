@@ -1,0 +1,645 @@
+--- Page 101 ---
+Manual del Jugador Capítulo 3: Clases
+CD de la Salvación de un Conjuro = 8 + tu bonificador de Bribón Versátil
+competencia + tu modificador de Inteligencia
+Al nivel 13 ganas la habilidad de distraer objetivos con tu
+Modificador de Ataque de un Conjuro = tu bonificador de
+mano de mago. Como una acción adicional en tu turno pue-
+competencia + tu modificador de Inteligencia
+des designar una criatura que no esté a más de 5 pies (1,5
+Prestidigitación de Mano de Mago metros) de la mano espectral creada por el hechizo. Hacerlo
+te proporciona ventaja en las tiradas de ataque contra esa
+Empezando en el nivel 3, cuando lanzas mano de mago, pue-
+criatura hasta el final del turno.
+des hacer invisible la mano espectral y puedes hacer las si-
+guientes tareas adicionales con ella: Ladrón de Conjuros
+• Puedes depositar un objeto que estés sosteniendo en un Al nivel 17 ganas la habilidad de robar mágicamente el cono-
+contenedor portado por otra criatura. cimiento para lanzar un conjuro de otro lanzador de conjuros.
+•
+Puedes coger un objeto de un contenedor portado por Inmediatamente después de que una criatura lance un
+otra criatura. conjuro del cual seas objetivo o que te incluya en su área de
+•
+Puedes usar herramientas de ladrón a distancia para efecto, puedes usar tu reacción para forzar a la criatura a rea-
+abrir cerraduras y desarmar trampas a distancia. lizar una tirada de salvación con el modificador de su carac-
+Puedes realizar una de estos trucos sin ser percibido por terística de lanzamiento de conjuros. La CD equivale a la CD
+una criatura si tienes éxito en una prueba de Destreza (Juego de salvación de tus conjuros. Si falla la tirada de salvación,
+de Manos) enfrentada a una prueba de Sabiduría (Percep- niegas el efecto del conjuro en ti y robas el conocimiento del
+ción) de la criatura. conjuro si es al menos de nivel 1 y de un nivel que puedas
+lanzar (no es preciso que sea un conjuro de mago). Durante
+Además, puedes utilizar la acción adicional que te brinda
+las siguientes 8 horas conoces el conjuro y puedes lanzarlo
+Acción Astuta para controlar la mano.
+usando tus espacios de conjuro. La criatura no puede lanzar
+Emboscada Mágica
+dicho conjuro hasta que las 8 horas hayan pasado.
+Empezando en el nivel 9, si estás escondido de una criatura
+Una vez que utilices este rasgo, no puedes usarlo nueva-
+en el momento en que lanzas un conjuro sobre ella, la criatura
+mente hasta que finalices un descanso prolongado.
+tiene desventaja en cualquier tirada de salvación contra el
+conjuro este turno.
+∼ 101 ∼
+
+--- Page 102 ---
+Capítulo 3: Clases Manual del Jugador
+Capítulo 4: Personalidad y Trasfondo
+os personajes están definidos por mucho más base. Ese mismo número multiplicado por la tirada o por el
+que su raza y su clase. Son individuos que tie- número especificado en la columna del Modificador de Peso
+L
+nen sus propias historias, intereses, conexio- determinará el peso adicional del personaje (en libras) por en-
+nes, y capacidades más allá de la clase y la raza cima del peso base.
+definen. En este capítulo se exponen los deta- Altura y Peso Aleatorios
+lles que distinguen a un personaje de otro, incluyendo lo más
+Altura Modificador Peso Modificador
+básico como el nombre y la descripción física, las reglas del Raza base de altura base de peso
+trasfondo y los lenguajes, y las características más sutiles Humano 4’8” +2d10 110 lb. x (2d4) lb.
+como la personalidad y el alineamiento. Enano de las colinas 3’8” +2d4 115 lb. x (2d6) lb.
+Enano de la montañas 4’ +2d4 130 lb. x (2d6) lb.
+Detalles del Personaje
+Alto elfo 4’6” +2d10 90 lb. x (2d6) lb.
+Elfo de los bosques 4’6” +2d10 100 lb. x (2d6) lb.
+Puede que el nombre de tu personaje y sus características fí- Elfo drow 4’5” +2d6 75 lb. x (1d6) lb.
+sicas sean las primeras cosas que los otros jugadores apren- Mediano 2’7” +2d4 35 lb. x 1 lb.
+dan sobre ti. Merece la pena pararse a pensar acerca de cómo Dracónido 5’6” +2d8 175 lb. x (2d6) lb.
+esas características reflejan al personaje que tienes en mente. Gnomo 2’11” +2d4 35 lb. x 1 lb.
+Semielfo 4’9” +2d8 110 lb. x (2d4) lb.
+NOMBRE
+Semiorco 4’10” +2d10 140 lb. x (2d6) lb.
+La descripción de la raza de tu personaje incluye nombres de
+Tiflin 4’9” +2d8 110 lb. x (2d4) lb.
+ejemplo para los miembros de esa raza. Piensa bien en qué
+TIKA Y ARTEMIS: CONTRASTANDO PERSONAJES
+nombre usarás incluso si va a ser uno de esa lista.
+Los detalles en este capítulo ofrecen grandes diferencias de
+SEXO configuración para diferenciar tu personaje de cualquier otro.
+Observa los dos siguientes guerreros humanos.
+Puedes jugar con un personaje femenino o masculino sin te-
+Procedente de las tierras de la Dragonlance, Tika Waylan fue
+ner que preocuparte de ganar ningún tipo de habilidad espe-
+una temeraria adolescente con una infancia muy dura. Hija de
+cial. Piensa en qué medida tu personaje no se conforma o
+un ladrón, escapó de casa y practicó el oficio de su padre en
+atiene a las expectaciones que tiene su cultura sobre su sexo, las calles de Solace. Cuando intentó robar al propietario de la
+género, y comportamiento sexual. Por ejemplo, un drow sa- Posada del Último Hogar, éste la pilló, la tomó bajo su protec-
+cerdote varón se opone a las divisiones tradicionales de las ción y la empleó como camarera. Pero cuando los ejércitos
+sociedades drow, lo que podría ser una razón para que tu per- draconianos devastaron la ciudad de Solace y destruyeron la
+posada, la necesidad forzó a Tika a meterse de lleno en la vida
+sonaje abandonase esa sociedad y saliese a la superficie.
+de aventurera junto a los amigos que había hecho en su niñez.
+No necesitas estar condicionado a las notaciones binarias Su talento como guerrera (una sartén sigue siendo una de sus
+del sexo y el género. Por ejemplo, el dios elfo Corellon Laret- armas favoritas) combinado con su historia en las calles le pro-
+hian siempre es visto como un ser andrógino o hermafrodita, porcionan unas incalculables capacidades para su carrera
+como aventurera.
+y algunos elfos en estos mundos están creados a imagen y
+Artemis Entreri creció en las calles de Calimport, en los
+semejanza de Corellon. También podrías jugar el papel de un
+Reinos Olvidados. Usaba su ingenio, fuerza, y destreza para
+personaje femenino que se presenta a sí misma como un
+hacerse con su propio territorio en uno de los cientos de ba-
+hombre, un hombre que se siente atrapado en el cuerpo de rrios pobres de chabolas que había en la ciudad. Después de
+una mujer, o por ejemplo una enana barbuda que odia que la varios años, terminó atrayendo la atención de una de las co-
+tomen por un varón. De cualquier modo, la orientación sexual fradías de ladrones más poderosas de la ciudad, y a pesar de
+de tu personaje es decisión tuya. su joven edad, ascendió rápidamente dentro de ella. Artemis
+se convirtió el asesino predilecto de uno de los Bajá de la ciu-
+ALTURA Y PESO dad, quien lo mandó al lejano valle del Viento Helado a recu-
+Puedes decidir la altura y el peso de tu personaje, usando la perar unas gemas robadas. Es un asesino profesional, retán-
+dose constantemente a sí mismo para mejorar sus habilida-
+información ofrecida en la descripción de tu raza o en la tabla
+des.
+Altura y Peso Aleatorios. Piensa en cómo tus puntuaciones
+Tika y Artemis son los dos humanos y guerreros (con alguna
+de característica podrían decir algo sobre su altura y su peso.
+experiencia como pícaros), que tienen una alta puntuación en
+Un personaje débil pero ágil puede que sea delgado. Un per- Destreza y Fuerza, pero ahí es donde acaban las similitudes.
+sonaje fuerte y resistente puede que sea alto o simplemente
+Por ejemplo, como humana, Tika tiene una altura de 4
+grueso.
+pies y 8 pulgadas más 2d10 pulgadas. Su jugador lanza una
+Si quieres, puedes lanzar un dado para generar aleatoria-
+tirada de 2d10 y obtiene un total de 12, así que Tika mide 5
+mente el peso y la altura de tu personaje en base a la tabla
+pies y 8 pulgadas de alto. Entonces el jugador usa esa misma
+Altura y Peso Aleatorios. La tirada que consigas en la co-
+tirada de 12 y lo multiplica por 2d4 libras. Su tirada de 2d4
+lumna del Modificador de Altura determinará la altura adicio-
+es 3, así que Tika tiene un peso adicional de 36 libras (12 x 3)
+nal de un personaje (en pulgadas) por encima de la altura
+∼ 102 ∼
+
+--- Page 103 ---
+Manual del Jugador Capítulo 4: Personalidad y Trasfondo
+sumado a sus 110 libras de peso base, por lo que tiene un Caótico neutral (CN). Estas criaturas hacen lo que les
+peso total de 146 libras. apetece, valorando su libertad por encima de todo. Muchos
+bárbaros y pícaros, y algunos bardos, son caóticos neutrales.
+OTRAS CARACTERÍSTICAS FÍSICAS
+Legal malvado (LM). Las criaturas cogen metódicamente
+Puedes elegir la edad y el color del pelo, ojos y piel de tu per-
+aquello que quieren, dentro de los límites de su tradición, leal-
+sonaje. Para darle un toque distintivo, quizás quieras darle a
+tad, u orden. Los demonios, dragones azules, y los hobgoblins
+tu personaje una característica inusual o memorable, como
+son legales malvados.
+una cicatriz, una cojera o un tatuaje.
+TIKA Y ARTEMIS: DETALLES DEL PERSONAJE Neutral malvado (NM). Es el alineamiento de aquellos
+Considera como los nombres Tika Waylan y Artermis Entreri que hacen lo que sea necesario para salirse con la suya, sin
+separan a estos personajes uno de otro y reflejan sus perso- compasión ni escrúpulos. Muchos drow, algunos gigantes de
+nalidades. Tika es una mujer joven determinada a probar que las nubes, y yugoloths son neutrales malvados.
+ya no es ninguna niña, y su nombre la hace sonar joven y nor-
+Caótico malvado (CM). Las criaturas actúan con una vio-
+mal. Artemis Entreri viene de una tierra exótica y lleva un
+nombre mucho más misterioso. lencia arbitraria, impulsados por su codicia, su odio o su sed
+Tika tiene diecinueve años al inicio de su vida como aventu- de sangre. Los demonios, dragones rojos, y orcos son caóti-
+rera y tiene pelo castaño, ojos verdes, piel clara con pecas, y cos malignos.
+un lunar en su cadera derecha. Artemis es un hombre pe-
+ALINEAMIENTO EN EL MULTIVERSO
+queño, compacto, delgado y musculoso. Tiene unas facciones
+anguladas y pómulos prominentes, y siempre parece que ne- Para muchas criaturas pensantes, el alineamiento es una de-
+cesite afeitarse. Su pelo negro azabache es frondoso, pero sus cisión moral. Los humanos, enanos, elfos, y otras razas hu-
+ojos son grises y sin vida -delatando el vacío de su vida y su
+manoides pueden elegir si seguir los caminos del bien o del
+alma.
+mal, de la ley o del caos. De acuerdo a los mitos, los dioses de
+Alineamiento alineamiento bueno que crearon estas razas les otorgaron la
+libertad para que pudieran escoger sus caminos morales, sa-
+Una criatura típica de los mundos de Dungeons & Dragons biendo que lo bueno sin libertad, es como la esclavitud.
+tiene un alineamiento, que en grandes rasgos describe su mo-
+Sin embargo, las deidades malignas que crearon otras ra-
+ral y sus aptitudes personales. Un alineamiento es una com-
+zas, las hicieron para que las sirvieran. Esas razas tienen
+binación de dos factores: uno identifica la moralidad (bueno,
+unas fuertes tendencias a seguir la naturaleza de sus dioses
+malvado o neutral), y el otro describe aptitudes para con la
+desde el día de su nacimiento. La mayoría de los orcos com-
+sociedad y el orden establecido (legal, caótico o neutral). Por
+parten la naturaleza salvaje y violenta del dios orco,
+lo tanto, nueve distintos alineamientos definen las posibles
+Gruumsh, y tienden hacia lo maligno. Incluso si un orco es-
+combinaciones.
+coge un alineamiento bueno, él estará luchando contra su na-
+Este breve resumen de los nueve alineamientos describe turaleza durante toda su vida. (Incluso los semiorcos se sien-
+el comportamiento típico de una criatura con ese alinea- ten atraídos constantemente por la influencia del dios orco).
+miento. Es posible que el comportamiento típico de un indivi-
+El alineamiento es una parte esencial de la naturaleza de
+duo sea diferente al de otro, muy poca gente es capaz de llevar
+los celestiales y los demonios. Un diablo no escoge ser legal
+a rajatabla los preceptos de su alineamiento.
+maligno, y no tiende a ser legal maligno, simplemente es legal
+Legal bueno (LB). Se puede contar con que las criaturas maligno en esencia. Si de alguna forma dejase de ser legal
+harán lo que la sociedad cree que es lo correcto. Los dragones maligno, dejaría de ser un diablo.
+dorados, paladines, y la mayoría de los enanos son legales
+La mayoría de las criaturas que no tienen capacidad de
+buenos.
+pensamiento racional no tienen alineamiento —son no ali-
+Neutral bueno (NB). La gente hace lo que puede para neadas. Una criatura así es incapaz de hacer una elección
+ayudar a los demás de acuerdo a sus necesidades. Muchos moral o ética debido a su naturaleza bestial. Los tiburones
+celestiales, algunos gigantes de las nubes, y la mayoría de los son depredadores salvajes, por ejemplo, pero no son malig-
+gnomos son neutrales buenos. nos; no tienen alineamiento.
+Caótico bueno (CB). Las criaturas actúan según les dicta Idiomas
+su conciencia, sin preocuparse por lo que esperan los demás.
+Los dragones de bronce, muchos elfos, y los unicornios son Tu raza indica los idiomas que tu personaje puede hablar de
+caóticos buenos. forma predeterminada, y puede que tu trasfondo te de acceso
+Legal neutral (LN). Los individuos actúan acorde a la ley, a uno o más idiomas adicionales de tu elección. Anota esos
+tradiciones, o códigos personales. Muchos monjes y hechice- idiomas en tu hoja de personaje.
+ros son legales neutrales. Escoge tus idiomas de la tabla Idiomas Estándar, o elige
+Neutral (N). Es el alineamiento de aquellos que prefieren uno que sea común en tu campaña. Con el permiso de tu DM,
+mantenerse al margen de cuestiones morales y no pertenecer puedes escoger un idioma de la tabla Idiomas Exóticos o un
+a ningún bando, haciendo lo que ellos creen que es lo mejor idioma secreto, como la jerga de los ladrones o la lengua de
+en cada momento. Los hombres lagarto, la mayoría de los los druidas.
+druidas, y muchos humanos son neutrales.
+∼ 103 ∼
+
+--- Page 104 ---
+Capítulo 4: Personalidad y Trasfondo Manual del Jugador
+Algunos de estos idiomas son realmente familias o idiomas RASGOS DE PERSONALIDAD
+con muchos dialectos. Por ejemplo, el idioma Primordial in-
+Dale a tu personaje dos rasgos de personalidad. Los rasgos
+cluye los dialectos Auran, Aquan, Ignan, y Terran, uno por
+de personalidad son formas pequeñas y simples para ayudar
+cada plano elemental. Las criaturas que hablan distintos dia-
+a diferenciar a tu personaje de cualquier otro personaje. Tus
+lectos de un mismo idioma pueden comunicarse unas con
+rasgos de personalidad deberían contarte algo interesante y
+otras.
+divertido sobre tu personaje. Deberían ser descripciones pro-
+Idiomas Estándar pias específicas sobre qué hace que tu personaje destaque.
+Idioma Hablantes Típicos Escritura “Soy inteligente” no es un buen rasgo, porque describe a mu-
+Común Humanos Común chos personajes. “He leído cada uno de los libros de Cande-
+Enano Enanos Enano lero” te cuenta algo específico sobre los intereses y la dispo-
+Élfico Elfos Élfico sición de tu personaje.
+Gigante Ogros, gigantes Enano
+Los rasgos de personalidad quizás describan las cosas
+Gnómico Gnomos Enano
+que le gustan a tu personaje, sus logros pasados, cosas que tu
+Goblin Goblinoides Enano
+personaje teme o que no le gustan, tu comportamiento o cos-
+Mediano Medianos Común
+tumbres, o la influencia que tienen en él sus puntuaciones de
+Orco Orcos Enano
+característica.
+Un buen punto de partida para empezar a pensar sobre
+Idiomas Exóticos los rasgos de personalidad es fijarse en tus puntuaciones de
+característica más alta y más baja y definir un rasgo relacio-
+Idioma Habitantes Típicos Escritura
+nado con ellas. Puede ser tanto positivo como negativo: qui-
+Abisal Demonios Infernal
+zás trabajaste muy duro para tener una baja puntuación, o
+Celestial Celestiales Celestial
+puedes ser arrogante en relación a tu puntuación más alta.
+Dracónico Dragones, Dracónidos Dracónido
+Habla Profunda Azotamentes, Contempladores — IDEALES
+Infernal Diablos Infernal
+Describe un ideal que de fuerzas a tu personaje. Tus ideales
+Primordial Elementales Enano
+son aquellas cosas en las que crees con mayor fuerza, tus fun-
+Silvano Criatura feéricas Élfico
+damentos morales y principios éticos que te hacen actuar de
+Infracomún Comerciantes de la infraoscuridad Élfico
+la forma en que actúas. Los ideales engloban todo desde tus
+TIKA Y ARTEMIS: ALINEAMIENTO metas en la vida hasta tus creencias más básicas.
+Tika Waylan es neutral buena, fundamentalmente posee un
+Puede que los ideales respondan cualquiera de estas pre-
+corazón bondadoso y busca ayudar a los demás siempre que
+guntas: ¿Qué principios no traicionarías nunca? ¿Por qué te
+puede. Artemis es legal malvado, no le preocupa el valor de la
+vida pero al menos es profesional cuando se trata de asesi- sacrificarías? ¿Qué te impulsa a actuar y te guía hacia tus ob-
+nato. jetivos y ambiciones? ¿Cuál es la cosa más importante por la
+Como un personaje malvado, Artemis no es un aventurero que luchas?
+ideal. Comenzó su historia como villano y solo coopera con
+Puedes elegir cualquier ideal que quieras, pero el alinea-
+héroes cuando no tiene otra opción –y cuando va de acuerdo
+miento de tu personaje es un buen punto de partida para em-
+con sus propios intereses. En la mayoría de los juegos, los
+aventureros malvados causan problemas con otros que no pezar a definirlos. Cada trasfondo de este capítulo incluye
+comparten sus intereses y objetivos. Generalmente los alinea- seis sugerencias de ideales. Cinco de ellos están ligados a as-
+mientos malignos son para villanos y monstruos. pectos del alineamiento: legal, caos, bueno, malvado, y neu-
+Características Personales tral. El último tiene más que ver con el trasfondo en particular
+que con perspectivas éticas o morales.
+Construir la personalidad de tu personaje —el conjunto de ca- VÍNCULOS
+racterísticas, peculiaridades, hábitos, creencias, y defectos
+Crea un vínculo para tu personaje. Los vínculos representan
+que le dan a una persona una identidad única— te ayudarán a
+la conexión del personaje con la gente, lugares, y eventos en
+traerlo a la vida mientras juegas. Aquí presentamos cuatro ca-
+el mundo. Te atan a cosas relacionadas con tu trasfondo. Qui-
+tegorías de características: rasgos de personalidad, ideales,
+zás te inspiren heroísmo, o te dirijan a actuar en contra de tus
+vínculos y defectos. Más allá de estas categorías, piensa
+propios intereses si se encuentran en peligro. Pueden funcio-
+acerca de las frases o palabras favoritas de tu personaje, tics
+nar de forma parecida a los ideales, alentando a un personaje
+y gestos habituales, vicios y manías, y cualquier cosa que pue-
+hacia sus motivaciones y metas.
+das imaginar.
+Los vínculos quizás responda alguna de estas preguntas:
+Cada trasfondo que se presenta más adelante en este ca-
+¿De qué persona te preocupas más? ¿Con que lugar sientes
+pítulo incluye sugerencias sobre características que podrías
+una conexión especial? ¿Cuál es tu posesión más preciada?
+usar para fomentar tu imaginación. No estás ligado a estas
+opciones, pero son un buen punto de partida.
+∼ 104 ∼
+
+--- Page 105 ---
+Manual del Jugador Capítulo 4: Personalidad y Trasfondo
+Inspiración
+Quizás tus lazos estén atados con tu clase, tu raza, o algún
+otro aspecto de la historia o personalidad de tu personaje,
+puede que ganes nuevos lazos en el transcurso de tus aventu- La inspiración es una regla que el Dungeon Master puede
+ras. usar para recompensarte por jugar con tu personaje de forma
+DEFECTOS que refleje sus rasgos personales, ideales, lazos y debilidades.
+Usando la inspiración, puedes confiar en tu rasgo de perso-
+Por último, escoge un defecto para tu personaje. La debilidad
+nalidad de compasión por los oprimidos para obtener ventaja
+de tu personaje representa algún vicio, comportamiento com-
+en las negociaciones con el Príncipe Mendigo. O la inspira-
+pulsivo, miedo o debilidad-en particular, cualquier cosa que
+ción podría permitirte hacer acopio de tus lazos referentes a
+alguien podría aprovechar para arruinarte o hacer que actúes
+la defensa de tu pueblo natal para superar los efectos de un
+en contra de tus propios intereses. Más importante que un
+hechizo que te han lanzado.
+rasgo de personalidad negativo, un defecto puede que res-
+ponda a cualquiera de estas preguntas: ¿Qué es lo que te pone GANANDO INSPIRACIÓN
+rabioso? ¿A qué persona, concepto o evento le tienes terror? Tu Dungeon Master puede darte inspiración por muchas ra-
+¿Cuáles son tus vicios? zones. Normalmente se otorgaran cuando actúes acorde a tus
+TIKA Y ARTEMIS: CARACTERÍSTICAS PERSONALES rasgos de personalidad, a tus debilidades o lazos, o simple-
+Tika y Artemis tienen diferentes rasgos de personalidad. A mente por actuar con tu personaje de forma convincente. Tu
+Tika Waylan no le gusta la ostentación y tiene miedo a las al-
+Dungeon Master te dirá como ganar inspiración en el juego.
+turas por culpa de una mala caída durante su carrera como
+ladrona. Artemis Entreri siempre está preparado para lo peor O tienes inspiración o no la tienes —no puedes almacenar
+y se mueve rápido y con seguridad. múltiples “inspiraciones” para usarlas después.
+Considera sus ideales. Tika Waylan es inocente, casi como
+USANDO INSPIRACIÓN
+una niña, creyendo en el valor de la vida y la importancia de
+apreciar a todo el mundo. Con un alineamiento neutral Si tienes inspiración, puedes usarla cuando realices una ti-
+bueno, ella personifica los ideales de la vida y el respeto. Ar- rada de ataque, tirada de salvación, o prueba de caracterís-
+temis Entreri nunca permite que sus emociones lo controlen, tica. Gastar tu inspiración te proporciona ventaja en tu si-
+y constantemente se pone a prueba a sí mismo para mejorar
+guiente tirada.
+sus habilidades. Su alineamiento legal maligno le otorga idea-
+les de imparcialidad y ansia de poder. Además, si tienes inspiración, puedes recompensar a otro
+El vínculo de Tika Waylan es la Posada del Último Hogar. El jugador por buena interpretación, por pensar de forma inteli-
+propietario de la posada le dio una nueva oportunidad para gente, o simplemente por hacer algo emocionante en la par-
+vivir, y su amistad con sus amigos aventureros se forjó du- tida. Cuando otro jugador hace algo que contribuye realmente
+rante su trabajo allí. Su destrucción por parte de los ejércitos
+a la historia de una forma divertida e interesante, puedes pa-
+draconianos asaltantes otorga a Tika una razón muy personal
+sarle tu inspiración.
+para odiarlos con toda su alma. Su vínculo podría escribirse
+como “Haré lo que sea necesario para castigar los ejércitos
+Trasfondos
+draconianos por la destrucción de la Posada del Último Ho-
+gar.”
+El vínculo de Artemis Entreri es extraño, con su paradójica
+Cada historia tiene un principio. El trasfondo de tu personaje
+relación con Drizzt Do’Urden, su igual en el manejo de la es-
+revela de dónde vienes, cómo te convertiste en un aventurero,
+pada y firme determinación. En su primera batalla con Drizzt,
+y cuál es tu lugar en el mundo. Puede que tu guerrero haya
+Artemis reconoció algo de él en su oponente, algún indicio de
+que si su vida hubiera sido diferente, quizás habría acabado sido un valiente caballero o un soldado veterano. Tu hechi-
+con una vida más parecida a la del heroico drow. Desde ese cero pudo haber sido un sabio o un artesano. Tu pícaro quizás
+momento, Artemis es más que un asesino criminal -es un an- ha estado en una cofradía de ladrones o ha actuado para gran-
+tihéroe, instigado por su rivalidad con Drizzt. Su vínculo podría des audiencias como bufón.
+escribirse como “No descansaré hasta que haya demostrado
+Escoger un trasfondo te proporciona pistas importantes
+que soy mejor que Drizzt Do’Urden.”
+Cada uno de estos personajes también tiene una importante sobre la identidad de tu personaje. La pregunta más impor-
+debilidad. Tika Waylan es inocente y emocionalmente vulne- tante acerca de tu trasfondo es ¿qué ha cambiado? ¿Por qué
+rable, más joven que sus compañeros y le molesta mucho que dejaste de hacer lo que sea que describe tu trasfondo para
+ellos sigan pensando en ella como la niña que conocieron empezar una vida de aventurero? ¿De dónde sacaste el dinero
+años atrás. Es posible que sea tentada a actuar en contra de
+para tu equipo inicial, o, si vienes de un trasfondo adinerado,
+sus principios si se convence de que conseguir algo en con-
+por qué no tienes más dinero? ¿Cómo aprendiste las habili-
+creto podría demostrar su madurez. Artemis Entreri se siente
+completamente ajeno a cualquier relación personal y solo dades de tu clase? ¿Qué es lo que te separa de la gente normal
+quiere que lo dejen solo. que comparte tu trasfondo?
+Los trasfondos de ejemplo de este capítulo otorgan bene-
+ficios concretos (características, competencias e idiomas) y
+sugerencias de interpretación.
+∼ 105 ∼
+
+--- Page 106 ---
+Capítulo 4: Personalidad y Trasfondo Manual del Jugador
+Acólito
+COMPETENCIAS
+Cada trasfondo otorga al personaje competencia en dos habi-
+Has pasado tu vida al servicio de un templo dedicado a un
+lidades. Las habilidades son descritas en el Capítulo 7.
+dios o panteón específico. Actúas como intermediario entre
+Además, la mayoría de trasfondos le dan al personaje una el reino de lo sagrado y el mundo de los mortales, realizando
+competencia con una o más herramientas. Las herramientas ritos sagrados y ofreciendo sacrificios con el fin de conducir
+y las competencias con herramientas están explicadas en el a los fieles a la presencia de lo divino. Esto no significa que
+Capítulo 5. seas un clérigo —realizar ritos sagrados no es lo mismo que
+Si un personaje ganase la misma competencia de dos canalizar la energía divina.
+fuentes diferentes, podrá escoger una competencia diferente Elige un dios, un panteón de dioses o algún otro ser cuasi
+del mismo tipo (habilidad o herramienta). divino de los listados en el Apéndice B o aquellos especifica-
+IDIOMAS dos por tu DM y habla con tu DM para detallar la naturaleza
+de tus servicios religiosos. ¿Realizabas funciones menores en
+Algunos trasfondos permiten que los personajes aprendan
+un templo, viviendo allí desde la infancia ayudando a los sa-
+idiomas adicionales además de los otorgados por la raza.
+cerdotes en los ritos sagrados? ¿O eras un sumo sacerdote
+Mira “Idiomas” en el apartado anterior en este capítulo.
+que de pronto fue convocado para servir a su dios de una
+EQUIPAMIENTO forma diferente? O tal vez eras el líder de un culto pequeño
+Cada trasfondo otorga un conjunto inicial de equipamiento. fuera de cualquier estructura establecida del templo, o in-
+Si usas la regla opcional del Capítulo 5 para gastar dinero en cluso un grupo ocultista que sirvió a un maestro diabólico del
+equipo, no recibirás el equipamiento inicial de tu trasfondo. que ahora reniegas.
+CARACTERÍSTICAS SUGERIDAS Competencia con Habilidades: Averiguar intenciones, Reli-
+gión.
+Un trasfondo contiene características personales sugeridas
+basadas en tu trasfondo. Puedes escoger características, ha- Idiomas: dos de tu elección.
+cer tiradas para escogerlas de forma aleatoria, o usar las su- Equipo: un símbolo sagrado (un regalo de cuando entraste
+gerencias como inspiración para usar características de tu en el sacerdocio), un libro de oraciones o rueda de plega-
+propia creación. rias, 5 barritas de incienso, vestiduras, un conjunto de
+ropa común y una bolsa que contiene 15 po.
+PERSONALIZANDO UN TRASFONDO
+Es posible que estés interesado en ajustar algunas de las ca- RASGO: REFUGIO DE LOS FIELES
+racterísticas de un trasfondo de forma que encaje mejor con Como acólito, mereces el respeto de aquellos que comparten
+tu personaje o con tu campaña. Para ajustar un trasfondo, tu fe y puedes realizar las ceremonias religiosas de tu deidad.
+puedes reemplazar una característica por otra, escoger dos
+Tus compañeros de aventuras y tú podéis recibir sanación
+habilidades cualesquiera, y escoger un total de dos competen-
+gratuita y atención en un templo, santuario, u otra presencia
+cias con herramientas o idiomas de los trasfondos de ejem-
+establecida de tu fe, aunque debes proporcionar los compo-
+plo. Puedes usar el conjunto de equipamiento de tu trasfondo
+nentes materiales necesarios para los conjuros. Aquellos que
+o gastar dinero en equipo como se describe en el Capítulo 5.
+comparten tu religión te podrán proporcionar (pero sólo a ti)
+(Si gastas dinero, no puedes escoger el conjunto de equipa-
+un estilo de vida modesto.
+miento inicial de tu clase). Por último, escoge dos rasgos de
+También podrías tener vínculos con un templo específico
+personalidad, un ideal, un vínculo, y un defecto. Si no encuen-
+dedicado a tu deidad o panteón y tener una residencia allí.
+tras una característica que concuerde con el trasfondo que
+Podría tratarse del templo que utilizas para realizar los servi-
+estás buscando, trabaja con tu Dungeon Master para crear
+cios, si mantienes una buena relación con la comunidad, o un
+una.
+templo en el que has encontrado un nuevo hogar. Mientras
+TIKA Y ARTEMIS: TRASFONDOS
+estés cerca de tu templo, puedes llamar a los sacerdotes para
+Tika Waylan y Artemis Entreri vivieron sus años de niñez como
+que te asistan, siempre y cuando la ayuda que solicitas no
+huérfanos en las calles. La siguiente etapa en la carrera de Tika
+como camarera realmente no la cambió, así que ella quizás ponga en peligro a quien la realiza y permanezcas en buena
+escogería un trasfondo de huérfana, ganando competencia en relación con tu templo.
+las habilidades de Juego de Manos y Sigilo, y aprendiendo a
+CARACTERÍSTICAS SUGERIDAS
+usar las herramientas de los ladrones. A Artemis lo define más
+el trasfondo de criminal, otorgándole habilidades como Enga- Los acólitos son moldeados por su experiencia en templos o
+ñar y Sigilo, además de competencia con las herramientas de en otras comunidades religiosas. Su estudio de la historia y
+ladrón y venenos. los principios de su fe y sus relaciones con los templos, san-
+tuarios o jerarquías afectan su manera de comportarse e idea-
+les. Sus defectos pueden ser alguna hipocresía o idea heré-
+tica oculta o un ideal o vínculo llevado al extremo.
+∼ 106 ∼
+
+--- Page 107 ---
+Manual del Jugador Capítulo 4: Personalidad y Trasfondo
+d8 Rasgo de Personalidad Competencia con Habilidades: Averiguar intenciones, Per-
+1 Idolatro a un héroe en particular de mi fe, y hago referencia cons- suasión.
+tantemente a las vivencias y el ejemplo de esa persona.
+2 Puedo encontrar un objetivo común hasta con los enemigos más Competencia con Herramientas: un tipo de herramientas
+feroces, empatizar con ellos y trabajar siempre hacia la paz. de artesano.
+3 Veo presagios en cualquier acontecimiento y acción. Los dioses
+tratan de hablar con nosotros, sólo tenemos que escuchar Idiomas: uno de tu elección.
+4 Nada puede hacer tambalear mi actitud optimista. Equipo: un set de herramientas de artesano (de tu elección),
+5 Cito (o incorrectamente cito) los textos sagrados y proverbios en
+una carta de introducción de tu gremio, una muda de ro-
+casi cualquier situación.
+6 Soy tolerante (o intolerante) hacia otras religiones y respeto (o pas de viaje, una bolsa que contiene 15 po.
+condeno) la adoración de otros dioses.
+OCUPACIONES DEL GREMIO
+7 He disfrutado de la buena comida, bebida y la alta sociedad entre
+la élite de mi templo. Me incomoda la vida ruda. Los gremios generalmente se encuentran en ciudades lo su-
+8 He pasado tanto tiempo en el templo que tengo poca experiencia
+ficientemente grandes para albergar varios artesanos que
+práctica en el trato con personas del mundo exterior.
+practiquen el mismo oficio. Aun así, tu gremio podría ser en
+su lugar una gran red de artesanos que trabajan cada uno en
+d6 Ideal un pueblo distinto dentro de un reino más grande. Trabaja
+1 Tradición. Las antiguas tradiciones de culto y sacrificio deben ser con tu DM para determinar la naturaleza de tu gremio. Pue-
+preservadas y defendidas. (Legal)
+des seleccionar la ocupación de tu gremio de la tabla Ocupa-
+2 Caridad. Yo siempre trato de ayudar a los necesitados, sin impor-
+tar el coste personal. (Bueno) ciones del Gremio o tirar al azar.
+3 Cambio. Debemos ayudar para que se logren los cambios que los d20 Ocupaciones del Gremio
+dioses maquilan constantemente para el mundo. (Caótico)
+1 Alquimistas y boticarios
+4 Poder. Espero llegar algún día a la cima de la jerarquía religiosa
+2 Armeros, cerrajeros y orfebres
+de mi fe. (Legal)
+3 Cerveceros, destiladores y vinateros
+5 Fe. Confío en que mi deidad guiará mis acciones. Tengo fe en que
+4 Calígrafos, escribas y escribanos
+si trabajo duro, las cosas irán bien. (Legal)
+5 Carpinteros, techadores y yeseros
+6 Aspiración. Trato de probarme a mí mismo ser merecedor de los
+6 Cartógrafos, topógrafo y delineantes
+favores de mi dios, comparando mis acciones con sus enseñan-
+7 Zapateros y remendones
+zas. (Cualquiera)
+8 Cocineros y panaderos
+9 Vidrieros y sopladores de vidrio
+10 Joyeros y talladores de gemas
+d6 Vínculo
+11 Desolladores, peleteros y curtidores
+1 Daría mi vida para recuperar una antigua reliquia de mi fe que se 12 Albañiles y canteros
+perdió hace mucho tiempo. 13 Pintores, rotulistas y retratistas
+2 Algún día me vengaré de la corrupta jerarquía del templo que me 14 Alfareros y azulejeros
+tachó de hereje. 15 Carpinteros de barcos y fabricantes de velas
+3 Le debo mi vida al sacerdote que me acogió cuando mis padres 16 Herreros y forjadores
+murieron. 17 Hojalateros, estañeros y vertedores
+4 Todo lo que hago es para la gente común. 18 Fabricantes de ruedas y vagones
+5 Haré cualquier cosa para proteger el templo donde serví. 19 Tejedores y tintoreros
+6 Busco preservar un texto sagrado que mis enemigos consideran 20 Talladores, toneleros y fabricantes de arcos
+herético y tratan de destruir.
+Como miembro de tu gremio, conoces tanto las habilida-
+des necesarias para crear objetos finalizados a partir de ma-
+d6 Defecto terias primas (reflejadas en tu competencia con un determi-
+1 Juzgo a otros con dureza, y a mí mismo aún más severamente. nado tipo de herramientas de artesano) como los principios
+2 Pongo demasiada confianza en quienes ejercen el poder dentro
+del comercio y las prácticas adecuadas para llevar adelante
+de la jerarquía de mi templo.
+3 Mi piedad a veces me lleva a confiar ciegamente en los que pro- un negocio. La pregunta ahora es si abandonaste tu comercio
+fesan la fe en mi Dios. por la aventura o si te tomaste el esfuerzo para entrelazar
+4 Soy inflexible en mi pensamiento.
+aventuras y comercio.
+5 Soy desconfiado con los extraños y espero lo peor de ellos.
+6 Una vez que tengo un objetivo, me obsesiono con él en detri- RASGO: MEMBRESÍA DEL GREMIO
+mento de todo lo demás en mi vida.
+Como un miembro de un gremio establecido y respetado, tie-
+nes ciertos beneficios que te provee tu membresía. Tus com-
+Artesano Gremial pañeros de gremio te proveerán alojamiento y comida si la
+necesitas y pagarán por tu funeral si es necesario. En algunos
+Eres miembro de un gremio de artesanos, especializado en pueblos y ciudades, un salón del gremio ofrece un lugar cen-
+un campo particular y cercanamente asociado con otros arte- tral para encontrarse con otros miembros de tu profesión,
+sanos. Eres una parte bien establecida del mundo mercantil, que puede ser un buen lugar para conocer potenciales patro-
+liberado por tu talento y riqueza de las limitaciones de la so- nes, aliados o empleados.
+ciedad feudal. Aprendiste tus habilidades como aprendiz de
+Los gremios a menudo poseen gran peso político. Si eres
+un maestro, bajo el patrocinio de tu gremio, hasta que te con-
+acusado de un crimen, tu gremio te apoyará si es factible pre-
+vertiste en un maestro por tus propios medios.
+sentar una buena defensa o si tu crimen es justificable. Tam-
+bién ganas acceso a poderosas figuras políticas a través del
+∼ 107 ∼
+
+--- Page 108 ---
+Capítulo 4: Personalidad y Trasfondo Manual del Jugador
+gremio, si tienes una buena posición dentro de él. Tales cone- d6 Defecto
+xiones podrían requerir la donación de dinero u objetos má- 1 Haré cualquier cosa para poner mis manos sobre algo raro o va-
+lioso.
+gicos a las arcas del gremio.
+2 Rápidamente asumo que la gente trata de engañarme.
+Debes pagar 5 po por mes al gremio. Si te saltas tus pa- 3 Nadie debe saber que una vez robé de las arcas del gremio.
+4 Nunca estoy satisfecho con lo que tengo —siempre quiero más.
+gas, debes pagar tus deudas para permanecer en la buena
+5 Mataría para adquirir un título de nobleza.
+gracia del gremio.
+6 Estoy horriblemente celoso de cualquiera que pueda eclipsar mi
+trabajo manual. Donde quiera que vaya, estoy rodeado por riva-
+CARACTERÍSTICAS SUGERIDAS
+les.
+Los artesanos son la gente más común del mundo —hasta
+VARIANTE DE ARTESANO DEL GREMIO: MERCADER DEL
+que dejan sus herramientas y comienzan una carrera como
+aventureros. Comprenden el valor del trabajo duro y la impor- GREMIO
+tancia de la comunidad, pero son vulnerables a los pecados En lugar de a un gremio de artesanos, podrías pertenecer a
+de avaricia y codicia. un gremio de comerciantes, mercaderes o dueños de carava-
+d8 Rasgo de Personalidad nas. No creas objetos por ti mismo, pero te ganas la vida com-
+1 Creo que cualquier cosa que valga la pena hacerse, vale la pena prando y vendiendo el trabajo de otros (o las materias primas
+hacerlo bien. No puedo evitarlo —Soy un perfeccionista. que los artesanos necesitan para practicar su oficio). Tu gre-
+2 Soy un engreído que mira con desprecio a aquellos que no pue-
+mio podría ser un gran consorcio (o familia) de mercaderes
+den apreciar el arte.
+3 Siempre quiero saber cómo funcionan las cosas y qué mueve a la con intereses en toda la región. Quizá transportabas bienes
+gente. de un lugar a otro, por barco, vagón o caravana; o los compra-
+4 Conozco cientos de ingeniosos aforismos y tengo un proverbio
+bas de mercaderes viajeros y los vendías en tu propia tienda.
+para cada ocasión.
+5 Soy grosero con la gente que no tiene mi compromiso por el tra- En cierta forma, la vida de mercader lleva a la aventura mu-
+bajo duro y las reglas justas. cho más que la de un artesano.
+6 Me gusta hablar largo y tendido sobre mi profesión.
+En lugar de competencia con herramientas de artesano,
+7 No me separo con facilidad de mi dinero y regatearé para conse-
+guir el mejor trato posible. podrías ser competente con herramientas de navegación, o
+8 Soy bien conocido por mi trabajo, y quiero asegurarme de que un idioma adicional. Y en lugar de herramientas de artesano,
+todo el mundo lo aprecia. Siempre me sorprende cuando alguien
+podrías empezar con una mula y un carro.
+no ha oído hablar de mí.
+Artista
+d6 Ideal
+Te creces frente a una audiencia. Sabes cómo deleitarlos, en-
+1 Comunidad. Es el deber de todas las personas civilizadas reforzar
+tretenerlos e incluso cómo inspirarlos. Tu poesía puede agi-
+los vínculos de la comunidad y la seguridad de la civilización. (Le-
+tar los corazones de los que te escuchan, despertar el dolor o
+gal)
+2 Generosidad. Mis talentos me fueron dados para que pudiera la alegría, la risa o la ira. Tu música eleva sus espíritus o cap-
+usarlos para beneficiar al mundo. (Bueno) tura su dolor. Tus pasos de danza cautivan, tu humor es hi-
+3 Libertad. Cada uno debería ser libre de perseguir su propio estilo
+riente. Sea cual sea la técnica que utilizas, tu arte es tu vida.
+de vida (Caótico)
+4 Avaricia. Sólo estoy en esto por el dinero (Maligno) Competencia con Habilidades: Acrobacias, Interpretación.
+5 Gente. Estoy comprometido con la gente que me importa, no
+con un ideal (Neutral) Competencia con Herramientas: kit de disfraz, un tipo de
+6 Aspiración. Trabajo duro para ser el mejor en mi oficio. (Cual- instrumento musical.
+quiera)
+Equipo: un instrumento musical (de tu elección), el favor de
+un admirador (una carta de amor, un mechón de pelo o
+d6 Vínculo una baratija), un disfraz y una bolsa que contiene 15 po.
+1 El taller donde aprendí mi oficio es el lugar más importante en el
+ESPECIALIDAD ARTÍSTICA
+mundo para mí.
+2 Creé una gran obra para alguien, y después lo encontré indigno Un buen artista es versátil y condimenta cada actuación
+de recibirla. Todavía busco a alguien que sea digno.
+con una variedad de diferentes especialidades. Elige dos o
+3 Le debo mucho a mi gremio por convertirme en la persona que
+ahora soy. tres especialidades o tira en la siguiente tabla para definir tu
+4 Busco riquezas para asegurarme el amor de alguien. experiencia como artista.
+5 Algún día, volveré a mi gremio y probaré que soy el más grande
+artesano. RASGO: A PETICIÓN POPULAR
+6 Me vengaré de las malvadas fuerzas que destruyeron mi lugar de
+trabajo y arruinaron mi estilo de vida. Siempre puedes encontrar d10 Especialidad Artística
+un lugar para actuar, por lo 1 Actor
+general en una posada o ta- 2 Bailarín
+berna, pero posiblemente
+3 Tragafuegos
+4 Bufón
+en un circo, un teatro o in-
+5 Malabarista
+cluso en la corte de un no- 6 Instrumentista
+ble. En ese lugar, recibirás 7 Poeta
+8 Cantante
+alojamiento y comida mo-
+9 Narrador
+10 Acróbata
+∼ 108 ∼
+

@@ -1,0 +1,1596 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hoja de personaje — plantilla PDF</title>
+    <style>
+      :root {
+        --ink: #111;
+        --blue: #0d48b8;
+        --gray: #e5e5e5;
+        --line: 1.5px;
+        --radius: 17px;
+        --hand: "Comic Sans MS", "Segoe Print", cursive;
+        --sans: Arial, Helvetica, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 24px;
+        background: #ddd;
+        color: var(--ink);
+        font-family: var(--sans);
+      }
+
+      #character-sheet {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .sheet {
+        position: relative;
+        width: 794px;
+        background: #fff;
+        overflow: hidden;
+        page-break-after: always;
+        break-after: page;
+        padding: 22px;
+        height: 1123px;
+      }
+
+      .sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 8px;
+        height: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 18px;
+        font-size: 8px;
+      }
+
+      .footer .brand {
+        font-weight: 800;
+        font-size: 9px;
+      }
+
+      /* ---------- primitives ---------- */
+
+      .box {
+        border: var(--line) solid var(--ink);
+        border-radius: var(--radius);
+        background: #fff;
+        position: relative;
+      }
+
+      .label {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 7px;
+        text-align: center;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .hand {
+        color: var(--blue);
+        font-family: var(--hand);
+      }
+
+      .field {
+        position: relative;
+      }
+
+      .field .value {
+        height: 21px;
+        padding: 5px 0 0;
+        border-bottom: 1px solid var(--ink);
+        font-size: 12px;
+      }
+
+      .field .label-line {
+        font-size: 9px;
+        text-transform: uppercase;
+      }
+
+      /* ---------- page 1 ---------- */
+
+      .p1-header {
+        display: flex;
+        margin-bottom: 9px;
+      }
+
+      .name-block {
+        width: 170px;
+      }
+
+      .name-block .value {
+        font-size: 13px;
+        padding-top: 5px;
+      }
+
+      .name-block .label-line {
+        font-size: 9px;
+      }
+
+      .top-info {
+        flex: 1;
+        padding: 9px 12px 6px;
+      }
+
+      .top-info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0 9px;
+      }
+      .p1-main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        gap: 8px;
+        height: 100%;
+      }
+
+      /* ability column */
+      .ability-col {
+        background: var(--gray);
+        border-radius: 16px;
+        padding: 6px 6px 7px;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+
+      .ability {
+        height: 95px;
+        border: var(--line) solid var(--ink);
+        border-radius: 16px;
+        background: white;
+        position: relative;
+        text-align: center;
+        padding-top: 12px;
+      }
+
+      .ability .ability-name {
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .ability .modifier {
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 19px;
+        margin-top: 10px;
+      }
+
+      .ability .score {
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 34px;
+        height: 34px;
+        border: var(--line) solid var(--ink);
+        border-radius: 50%;
+        background: white;
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .passive {
+        left: 0;
+        width: 100%;
+        height: 39px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 9px;
+      }
+
+      .passive .number {
+        width: 48px;
+        height: 39px;
+        border: var(--line) solid var(--ink);
+        font-family: var(--hand);
+        color: var(--blue);
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .passive .title {
+        height: 28px;
+        flex: 1;
+        border: var(--line) solid var(--ink);
+        border-left: 0;
+        border-radius: 0 14px 14px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .save-skills {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .skill-box {
+        border: var(--line) solid var(--ink);
+        border-radius: 16px;
+        background: white;
+        padding: 8px 8px 20px;
+        position: relative;
+      }
+
+      .check-row {
+        height: 25px;
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+      }
+
+      .check {
+        width: 11px;
+        height: 11px;
+        border: 1.5px solid var(--ink);
+        border-radius: 50%;
+        margin-right: 6px;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .check.checked::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--blue);
+        left: 1.5px;
+        top: 1.5px;
+      }
+
+      .check-row .bonus {
+        margin-left: auto;
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 12px;
+      }
+
+      .section-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 7px;
+        text-align: center;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .center-col {
+        position: relative;
+      }
+
+      .inspiration {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .inspiration .number {
+        border: var(--line) solid var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--hand);
+        color: var(--blue);
+        font-size: 17px;
+      }
+
+      .inspiration .pill {
+        border: var(--line) solid var(--ink);
+        border-left: 0;
+        border-radius: 0 16px 16px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .combat-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+        margin-bottom: 9px;
+      }
+
+      .circle-stat {
+        height: 72px;
+        border: var(--line) solid var(--ink);
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .circle-stat .value {
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 17px;
+      }
+
+      .circle-stat .name {
+        margin-top: 3px;
+        font-size: 7px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .hp {
+        height: 185px;
+        margin-bottom: 9px;
+        padding: 28px 10px 10px;
+      }
+
+      .hp .small-value {
+        position: absolute;
+        top: 7px;
+        right: 14px;
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 12px;
+      }
+
+      .hp .mid-label {
+        position: absolute;
+        top: 7px;
+        left: 12px;
+        color: #777;
+        font-size: 9px;
+      }
+
+      .hp .current {
+        height: 85px;
+        border-bottom: var(--line) solid var(--ink);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .hp .temporary {
+        height: 67px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 5px;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .hit-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        margin-bottom: 9px;
+      }
+
+      .hit-box {
+        height: 92px;
+        padding-top: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .hit-box .value {
+        font-family: var(--hand);
+        color: var(--blue);
+        font-size: 17px;
+        font-weight: 400;
+        text-transform: none;
+        margin-bottom: 3px;
+      }
+
+      .death-row {
+        display: flex;
+        gap: 3px;
+        margin-top: 4px;
+        font-size: 7px;
+      }
+
+      .death-row span {
+        display: inline-flex;
+        width: 10px;
+        height: 10px;
+        border: 1.2px solid var(--ink);
+        border-radius: 50%;
+      }
+
+      .large-box {
+        height: 200px;
+        margin-bottom: 9px;
+        padding: 16px 9px 18px;
+      }
+
+      .equipment {
+        height: 390px;
+        padding: 12px 10px 20px;
+      }
+
+      .right-col {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .personality {
+        background: var(--gray);
+        border-radius: 16px;
+        padding: 7px;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 5px;
+      }
+
+      .personality .box {
+        padding: 8px 8px 23px;
+      }
+
+      .traits {
+        padding: 10px 10px 22px;
+      }
+
+      .textarea-value {
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 11px;
+        line-height: 1.08;
+        white-space: pre-wrap;
+      }
+
+      /* ---------- page 2 ---------- */
+
+      .p2-header {
+        position: absolute;
+        left: 42px;
+        right: 42px;
+        top: 39px;
+        height: 78px;
+      }
+
+      .p2-header .name-block {
+        top: 28px;
+      }
+
+      .appearance {
+        position: absolute;
+        left: 225px;
+        right: 0;
+        top: 0;
+        height: 78px;
+        padding: 7px 12px;
+      }
+
+      .p2-grid {
+        position: absolute;
+        left: 42px;
+        right: 42px;
+        top: 141px;
+        bottom: 30px;
+        display: grid;
+        grid-template-columns: 298px 1fr;
+        column-gap: 13px;
+      }
+
+      .left-p2,
+      .right-p2 {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .portrait-box {
+        height: 401px;
+        padding: 4px;
+      }
+
+      .portrait-box img {
+        display: block;
+        width: 192px;
+        height: 310px;
+        object-fit: cover;
+        margin: 0 auto;
+      }
+
+      .notes {
+        height: 779px;
+        padding: 10px 10px 22px;
+      }
+
+      .history {
+        height: 150px;
+        padding: 10px 10px 22px;
+      }
+
+      .traits-page2 {
+        height: 920px;
+        padding: 10px 10px 22px;
+      }
+
+      .feature-text {
+        font-size: 10px;
+        line-height: 1.15;
+      }
+
+      .feature-text p {
+        margin: 0 0 5px;
+      }
+
+      /* ---------- page 3: spellcasting ---------- */
+      .p3-header {
+        position: absolute;
+        left: 42px;
+        right: 42px;
+        top: 39px;
+        height: 105px;
+        display: grid;
+        grid-template-columns: 1.4fr 1.2fr 0.9fr 1fr;
+        gap: 8px;
+      }
+
+      .spell-head-box {
+        border: var(--line) solid var(--ink);
+        border-radius: 16px;
+        padding: 9px 10px 20px;
+        position: relative;
+        min-width: 0;
+      }
+
+      .spell-head-box .value {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--ink);
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 15px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .spell-head-box .label {
+        left: 8px;
+        right: 8px;
+        bottom: 6px;
+        font-size: 7px;
+      }
+
+      .spell-slots {
+        position: absolute;
+        left: 42px;
+        right: 42px;
+        top: 158px;
+        height: 128px;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 5px;
+      }
+
+      .slot-box {
+        border: var(--line) solid var(--ink);
+        border-radius: 13px;
+        padding: 7px 4px 5px;
+        position: relative;
+        text-align: center;
+        background: #fff;
+      }
+
+      .slot-box .slot-level {
+        font-size: 7px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .slot-box .slot-count {
+        margin-top: 7px;
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 15px;
+        height: 19px;
+      }
+
+      .slot-circles {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3px;
+        margin-top: 5px;
+      }
+
+      .slot-circles span {
+        width: 9px;
+        height: 9px;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+        display: block;
+      }
+
+      .slot-circles span.used {
+        background: var(--blue);
+      }
+
+      .spell-body {
+        position: absolute;
+        left: 42px;
+        right: 42px;
+        top: 304px;
+        bottom: 30px;
+        display: grid;
+        grid-template-columns: 215px 1fr;
+        gap: 10px;
+      }
+
+      .spell-list {
+        border: var(--line) solid var(--ink);
+        border-radius: 16px;
+        padding: 12px 10px 22px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .spell-list.cantrips {
+        height: 100%;
+      }
+
+      .spellbook {
+        display: grid;
+        grid-template-rows: repeat(9, 1fr);
+        gap: 7px;
+        min-height: 0;
+      }
+
+      .spell-level {
+        border: var(--line) solid var(--ink);
+        border-radius: 14px;
+        padding: 8px 8px 21px;
+        position: relative;
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .spell-level-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 4px;
+        margin-bottom: 4px;
+        font-size: 8px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .spell-level-title .slots {
+        color: var(--blue);
+        font-family: var(--hand);
+        font-size: 11px;
+        font-weight: 400;
+        text-transform: none;
+      }
+
+      .spell-row {
+        min-height: 18px;
+        display: grid;
+        grid-template-columns: 13px 1fr 45px 45px 48px;
+        gap: 4px;
+        align-items: center;
+        font-size: 7px;
+        border-bottom: 1px dotted #999;
+      }
+
+      .spell-row:last-child {
+        border-bottom: 0;
+      }
+
+      .spell-prepared {
+        width: 9px;
+        height: 9px;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+      }
+
+      .spell-prepared.checked::after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 5px;
+        margin: 1px;
+        border-radius: 50%;
+        background: var(--blue);
+      }
+
+      .spell-name {
+        font-weight: 700;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .spell-meta {
+        color: #555;
+        text-align: center;
+        font-size: 6px;
+      }
+
+      .spell-empty {
+        color: #888;
+        font-size: 7px;
+        font-style: italic;
+        padding-top: 3px;
+      }
+
+      .spell-note {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 22px;
+        border-top: 1px solid var(--ink);
+        padding-top: 5px;
+        font-size: 7px;
+        color: #555;
+      }
+
+      .spell-list > .label,
+      .spell-level > .label {
+        font-size: 8px;
+      }
+
+      /* Hide editing controls in the generated PDF */
+      .no-export {
+        display: none !important;
+      }
+
+      @media print {
+        body {
+          padding: 0;
+          background: white;
+        }
+        #character-sheet {
+          gap: 0;
+        }
+        .sheet {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="character-sheet">
+      <!-- ================= PAGE 1 ================= -->
+      <section class="sheet" id="page-1">
+        <header class="p1-header">
+          <div class="name-block">
+            <div class="field">
+              <div class="value hand" data-bind="name">Klaus Moretti</div>
+              <div class="label-line">Nombre del personaje</div>
+            </div>
+          </div>
+          <div class="top-info box">
+            <div class="top-info-grid">
+              <div class="field">
+                <div class="value hand" data-bind="classLevel">Mago 3</div>
+                <div class="label-line">Clase y nivel</div>
+              </div>
+              <div class="field">
+                <div class="value hand" data-bind="background">
+                  - Personalizado -
+                </div>
+                <div class="label-line">Trasfondo</div>
+              </div>
+              <div class="field">
+                <div class="value hand" data-bind="player">Nando77</div>
+                <div class="label-line">Jugador</div>
+              </div>
+              <div class="field">
+                <div class="value hand" data-bind="race">Humano</div>
+                <div class="label-line">Especie</div>
+              </div>
+              <div class="field">
+                <div class="value hand" data-bind="alignment">
+                  Neutral bueno
+                </div>
+                <div class="label-line">Alineamiento</div>
+              </div>
+              <div class="field">
+                <div class="value hand" data-bind="xp">&nbsp;</div>
+                <div class="label-line">Puntos de experiencia</div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="p1-main">
+          <div style="grid-column: span 2 / span 2; grid-row: span 7 / span 7">
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                gap: 9px;
+                margin-bottom: 9px;
+              "
+            >
+              <div class="ability-box">
+                <div class="ability-col">
+                  <div class="ability">
+                    <div class="ability-name">Fuerza</div>
+                    <div class="modifier hand" data-bind="strMod">0</div>
+                    <div class="score" data-bind="str">11</div>
+                  </div>
+                  <div class="ability">
+                    <div class="ability-name">Destreza</div>
+                    <div class="modifier hand" data-bind="dexMod">+2</div>
+                    <div class="score" data-bind="dex">14</div>
+                  </div>
+                  <div class="ability">
+                    <div class="ability-name">Constitución</div>
+                    <div class="modifier hand" data-bind="conMod">+4</div>
+                    <div class="score" data-bind="con">19</div>
+                  </div>
+                  <div class="ability">
+                    <div class="ability-name">Inteligencia</div>
+                    <div class="modifier hand" data-bind="intMod">+4</div>
+                    <div class="score" data-bind="int">19</div>
+                  </div>
+                  <div class="ability">
+                    <div class="ability-name">Sabiduría</div>
+                    <div class="modifier hand" data-bind="wisMod">+3</div>
+                    <div class="score" data-bind="wis">17</div>
+                  </div>
+                  <div class="ability">
+                    <div class="ability-name">Carisma</div>
+                    <div class="modifier hand" data-bind="chaMod">+2</div>
+                    <div class="score" data-bind="cha">14</div>
+                  </div>
+                </div>
+              </div>
+              <div class="save-skills" style="flex: 1">
+                <div class="skill-box saves">
+                  <div class="check-row">
+                    <span class="check"></span>Fuerza
+                    <span class="bonus">0</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Destreza
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Constitución
+                    <span class="bonus">+4</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check checked"></span>Inteligencia
+                    <span class="bonus">+6</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check checked"></span>Sabiduría
+                    <span class="bonus">+5</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Carisma
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="section-label">Tiradas de salvación</div>
+                </div>
+                <div class="skill-box skills">
+                  <div class="check-row">
+                    <span class="check"></span>Acrobacias
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Arcanos
+                    <span class="bonus">+4</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Atletismo
+                    <span class="bonus">0</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Engañar
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check checked"></span>Historia
+                    <span class="bonus">+6</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Interpretación
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Intimidar
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check checked"></span>Investigación
+                    <span class="bonus">+6</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Juego de Manos
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Medicina
+                    <span class="bonus">+3</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Naturaleza
+                    <span class="bonus">+4</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Percepción
+                    <span class="bonus">+3</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Perspicacia
+                    <span class="bonus">+3</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Persuasión
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Religión
+                    <span class="bonus">+4</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Sigilo
+                    <span class="bonus">+2</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Supervivencia
+                    <span class="bonus">+3</span>
+                  </div>
+                  <div class="check-row">
+                    <span class="check"></span>Trato con Animales
+                    <span class="bonus">+3</span>
+                  </div>
+                  <div class="section-label">Habilidades</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              grid-column: span 2 / span 2;
+              grid-row: span 3 / span 3;
+              grid-row-start: 8;
+            "
+          >
+            <div class="passive">
+              <div class="number hand" data-bind="passivePerception">13</div>
+              <div class="title">Sabiduría (percepción) pasiva</div>
+            </div>
+            <div
+              class="box"
+              style="
+                width: 100%;
+                padding: 10px 10px 22px;
+              "
+            >
+              <div class="textarea-value" data-bind="proficiencies">
+                Competencias: - Ballesta ligera, Bastón, Daga, Dardo, Honda
+              </div>
+              <div class="label">Otras competencias e idiomas</div>
+            </div>
+          </div>
+          <div style="grid-row: span 4 / span 4; grid-column-start: 3">
+            <div class="inspiration">
+              <div class="number hand" data-bind="inspiration">&nbsp;</div>
+              <div class="pill">Inspiración</div>
+            </div>
+
+            <div class="inspiration">
+              <div class="number hand" data-bind="profBonus">+2</div>
+              <div class="pill">Bonificador de competencia</div>
+            </div>
+
+            <div class="combat-stats">
+              <div class="circle-stat">
+                <div class="value hand" data-bind="ac">12</div>
+                <div class="name">CA</div>
+              </div>
+              <div class="circle-stat">
+                <div class="value hand" data-bind="initiative">+2</div>
+                <div class="name">Iniciativa</div>
+              </div>
+              <div class="circle-stat">
+                <div class="value hand" data-bind="speed">30</div>
+                <div class="name">Velocidad<br />(pies)</div>
+              </div>
+            </div>
+
+            <div class="box hp">
+              <div class="mid-label">Puntos de Golpe Máximos</div>
+              <div class="small-value hand" data-bind="maxHp">27</div>
+              <div class="current">Puntos de golpe actuales</div>
+              <div class="temporary">Puntos de golpe temporales</div>
+            </div>
+
+            <div class="hit-row">
+              <div class="box hit-box">
+                <div class="value" data-bind="hitDice">3d6</div>
+                Dados de golpe
+              </div>
+              <div class="box hit-box">
+                <div class="value">
+                  Éxitos ○○○<br />
+                  Fallos ○○○
+                </div>
+                Salvaciones de muerte
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              grid-row: span 3 / span 3;
+              grid-column-start: 3;
+              grid-row-start: 5;
+            "
+          >
+            <div class="box large-box">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 52px 1fr;
+                  font-size: 7px;
+                  text-align: center;
+                "
+              >
+                <span>NOMBRE</span><span>BONIF.</span><span>DAÑO/TIPO</span>
+              </div>
+              <div class="label">Ataques y lanzamiento de conjuros</div>
+            </div>
+          </div>
+          <div
+            style="
+              grid-row: span 3 / span 3;
+              grid-column-start: 3;
+              grid-row-start: 8;
+            "
+          >
+            <div class="box equipment">
+              <div class="label">Equipo</div>
+            </div>
+          </div>
+
+        
+        </main>
+
+        <footer class="footer">
+          <span>© 2026 - Plantilla de hoja de personaje</span>
+          <span class="brand">HOJA DE PERSONAJE</span>
+        </footer>
+      </section>
+
+      <!-- ================= PAGE 2 ================= -->
+      <section class="sheet" id="page-2">
+        <header class="p2-header">
+          <div class="name-block">
+            <div class="field">
+              <div class="value hand" data-bind="name">Klaus Moretti</div>
+              <div class="label-line">Nombre del personaje</div>
+            </div>
+          </div>
+          <div class="appearance box">
+            <div
+              class="label"
+              style="bottom: 7px; text-align: left; padding-left: 0"
+            >
+              Apariencia
+            </div>
+          </div>
+        </header>
+
+        <main class="p2-grid">
+          <div class="left-p2">
+            <div class="box portrait-box">
+              <!-- Reemplaza esta URL/base64 por character.image -->
+              <img
+                id="character-image"
+                src=""
+                alt="Apariencia del personaje"
+                style="display: none"
+              />
+              <div
+                id="portrait-placeholder"
+                class="hand"
+                style="
+                  height: 310px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: #777;
+                  font-size: 12px;
+                "
+              >
+                Imagen del personaje
+              </div>
+              <div class="label">Apariencia</div>
+            </div>
+
+            <div class="box notes">
+              <div class="textarea-value" data-bind="notes"></div>
+              <div class="label">Notas adicionales</div>
+            </div>
+          </div>
+
+          <div class="right-p2">
+            <div class="box history">
+              <div class="textarea-value" data-bind="history"></div>
+              <div class="label">Historia del personaje</div>
+            </div>
+
+            <div class="box traits-page2">
+              <div
+                class="textarea-value feature-text"
+                data-bind="featureDetails"
+              >
+                Mago Nivel 3 › Copiar un conjuro en el libro: Puedes añadir un
+                conjuro a tu libro de conjuros si es de un nivel de conjuro que
+                puedes preparar y si puedes dedicar tiempo a descifrarlo y
+                copiarlo. › Erudito de la evocación: El oro y el tiempo que
+                debes gastar para copiar un conjuro de evocación en tu libro de
+                conjuros se reducen a la mitad. › Esculpir conjuros: Puedes
+                crear «bolsas» de relativa seguridad para los efectos de tus
+                conjuros de evocación. › Lanzamiento de conjuros: Puedes lanzar
+                conjuros arcanos utilizando tu inteligencia. › Lanzamiento
+                ritual: Puedes lanzar cualquier conjuro de mago como si fuera un
+                ritual si tiene la etiqueta «ritual». › Recuperación arcana: Una
+                vez por día, cuando hagas un descanso breve, puedes recuperar
+                espacios de conjuro. › Remplazar el libro: Puedes copiar un
+                conjuro de tu propio libro de conjuros en otro libro.
+              </div>
+              <div class="label">Rasgos</div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer">
+          <span>© 2026 - Plantilla de hoja de personaje</span>
+          <span class="brand">HOJA DE PERSONAJE</span>
+        </footer>
+      </section>
+
+      <!-- ================= PAGE 3: SPELLCASTING ================= -->
+      <section class="sheet" id="page-3">
+        <header class="p3-header">
+          <div class="spell-head-box">
+            <div class="value hand" data-bind="spellcastingClass">Mago</div>
+            <div class="label">Clase lanzadora de conjuros</div>
+          </div>
+          <div class="spell-head-box">
+            <div class="value hand" data-bind="spellcastingAbility">
+              Inteligencia
+            </div>
+            <div class="label">Característica mágica</div>
+          </div>
+          <div class="spell-head-box">
+            <div class="value hand" data-bind="spellSaveDc">14</div>
+            <div class="label">CD salvación de conjuros</div>
+          </div>
+          <div class="spell-head-box">
+            <div class="value hand" data-bind="spellAttackBonus">+6</div>
+            <div class="label">Bonif. ataque de conjuros</div>
+          </div>
+        </header>
+
+        <section class="spell-slots" aria-label="Espacios de conjuro">
+          <div class="slot-box">
+            <div class="slot-level">Nivel 1</div>
+            <div class="slot-count" data-bind="slot1">4</div>
+            <div class="slot-circles">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 2</div>
+            <div class="slot-count" data-bind="slot2">2</div>
+            <div class="slot-circles"><span></span><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 3</div>
+            <div class="slot-count" data-bind="slot3">—</div>
+            <div class="slot-circles"><span></span><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 4</div>
+            <div class="slot-count" data-bind="slot4">—</div>
+            <div class="slot-circles"><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 5</div>
+            <div class="slot-count" data-bind="slot5">—</div>
+            <div class="slot-circles"><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 6</div>
+            <div class="slot-count" data-bind="slot6">—</div>
+            <div class="slot-circles"><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 7</div>
+            <div class="slot-count" data-bind="slot7">—</div>
+            <div class="slot-circles"><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 8</div>
+            <div class="slot-count" data-bind="slot8">—</div>
+            <div class="slot-circles"><span></span></div>
+          </div>
+          <div class="slot-box">
+            <div class="slot-level">Nivel 9</div>
+            <div class="slot-count" data-bind="slot9">—</div>
+            <div class="slot-circles"><span></span></div>
+          </div>
+        </section>
+
+        <main class="spell-body">
+          <section class="spell-list cantrips">
+            <div class="spell-row">
+              <span></span><strong>Nombre</strong
+              ><span class="spell-meta">Alcance</span
+              ><span class="spell-meta">Tiempo</span
+              ><span class="spell-meta">Dur.</span>
+            </div>
+            <div data-spell-list="cantrips">
+              <div class="spell-row">
+                <span class="spell-prepared checked"></span
+                ><span class="spell-name">Prestidigitación</span
+                ><span class="spell-meta">10 pies</span
+                ><span class="spell-meta">1 acción</span
+                ><span class="spell-meta">1 h</span>
+              </div>
+              <div class="spell-row">
+                <span class="spell-prepared checked"></span
+                ><span class="spell-name">Rayo de fuego</span
+                ><span class="spell-meta">120 pies</span
+                ><span class="spell-meta">1 acción</span
+                ><span class="spell-meta">Inst.</span>
+              </div>
+              <div class="spell-row">
+                <span class="spell-prepared checked"></span
+                ><span class="spell-name">Luz</span
+                ><span class="spell-meta">Toque</span
+                ><span class="spell-meta">1 acción</span
+                ><span class="spell-meta">1 h</span>
+              </div>
+              <div class="spell-row">
+                <span class="spell-prepared checked"></span
+                ><span class="spell-name">Mano de mago</span
+                ><span class="spell-meta">30 pies</span
+                ><span class="spell-meta">1 acción</span
+                ><span class="spell-meta">1 min</span>
+              </div>
+            </div>
+            <div class="spell-note" data-bind="cantripNotes">
+              Los trucos no consumen espacios de conjuro.
+            </div>
+            <div class="label">Trucos</div>
+          </section>
+
+          <section class="spellbook">
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 1</span
+                ><span class="slots" data-bind="spellLevel1Slots"
+                  >4 espacios</span
+                >
+              </div>
+              <div data-spell-list="level1">
+                <div class="spell-row">
+                  <span class="spell-prepared checked"></span
+                  ><span class="spell-name">Detectar magia</span
+                  ><span class="spell-meta">Personal</span
+                  ><span class="spell-meta">1 acción</span
+                  ><span class="spell-meta">Concentración</span>
+                </div>
+                <div class="spell-row">
+                  <span class="spell-prepared checked"></span
+                  ><span class="spell-name">Armadura de mago</span
+                  ><span class="spell-meta">Toque</span
+                  ><span class="spell-meta">1 acción</span
+                  ><span class="spell-meta">8 h</span>
+                </div>
+                <div class="spell-row">
+                  <span class="spell-prepared checked"></span
+                  ><span class="spell-name">Proyectil mágico</span
+                  ><span class="spell-meta">120 pies</span
+                  ><span class="spell-meta">1 acción</span
+                  ><span class="spell-meta">Inst.</span>
+                </div>
+              </div>
+              <div class="label">Conjuros de nivel 1</div>
+            </div>
+
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 2</span
+                ><span class="slots" data-bind="spellLevel2Slots"
+                  >2 espacios</span
+                >
+              </div>
+              <div data-spell-list="level2">
+                <div class="spell-row">
+                  <span class="spell-prepared checked"></span
+                  ><span class="spell-name">Misty Step</span
+                  ><span class="spell-meta">Personal</span
+                  ><span class="spell-meta">1 bonus</span
+                  ><span class="spell-meta">Inst.</span>
+                </div>
+                <div class="spell-row">
+                  <span class="spell-prepared checked"></span
+                  ><span class="spell-name">Esfera de llamas</span
+                  ><span class="spell-meta">60 pies</span
+                  ><span class="spell-meta">1 acción</span
+                  ><span class="spell-meta">Concentración</span>
+                </div>
+              </div>
+              <div class="label">Conjuros de nivel 2</div>
+            </div>
+
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 3</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 3</div>
+            </div>
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 4</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 4</div>
+            </div>
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 5</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 5</div>
+            </div>
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 6</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 6</div>
+            </div>
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 7</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 7</div>
+            </div>
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 8</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 8</div>
+            </div>
+            <div class="spell-level">
+              <div class="spell-level-title">
+                <span>Nivel 9</span><span class="slots">—</span>
+              </div>
+              <div class="spell-empty">
+                Sin espacios disponibles para este nivel.
+              </div>
+              <div class="label">Conjuros de nivel 9</div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="footer">
+          <span>© 2026 - Plantilla de hoja de personaje</span>
+          <span class="brand">CONJUROS</span>
+        </footer>
+      </section>
+    </div>
+
+    <script>
+      /*
+  Datos de ejemplo.
+  En tu Next.js puedes eliminar este objeto y rellenar los [data-bind]
+  desde tu personaje real.
+*/
+      const character = {
+        name: "Klaus Moretti",
+        classLevel: "Mago 3",
+        background: "- Personalizado -",
+        player: "Nando77",
+        race: "Humano",
+        alignment: "Neutral bueno",
+        xp: "",
+        str: 11,
+        strMod: "0",
+        dex: 14,
+        dexMod: "+2",
+        con: 19,
+        conMod: "+4",
+        int: 19,
+        intMod: "+4",
+        wis: 17,
+        wisMod: "+3",
+        cha: 14,
+        chaMod: "+2",
+        inspiration: "",
+        profBonus: "+2",
+        ac: 12,
+        initiative: "+2",
+        speed: 30,
+        maxHp: 27,
+        hitDice: "3d6",
+        passivePerception: 13,
+        spellcastingClass: "Mago",
+        spellcastingAbility: "Inteligencia",
+        spellSaveDc: 14,
+        spellAttackBonus: "+6",
+        slot1: 4,
+        slot2: 2,
+        slot3: "—",
+        slot4: "—",
+        slot5: "—",
+        slot6: "—",
+        slot7: "—",
+        slot8: "—",
+        slot9: "—",
+        spellLevel1Slots: "4 espacios",
+        spellLevel2Slots: "2 espacios",
+        cantripNotes: "Los trucos no consumen espacios de conjuro.",
+        personality: "No hay nada que me guste más que un buen misterio.",
+        ideals:
+          "Lógica. Las emociones no deben nublar nuestro pensamiento lógico. (Legal)",
+        bonds:
+          "He estado buscando toda mi vida la respuesta a una pregunta determinada.",
+        flaws:
+          "Desenterrar un antiguo misterio bien vale el precio de una civilización.",
+        proficiencies:
+          "Competencias:\\n- Ballesta ligera, Bastón, Daga, Dardo, Honda",
+        features:
+          "Mago nivel 3:\\n- Copiar un conjuro en el libro\\n- Erudito de la evocación\\n- Esculpir conjuros\\n- Lanzamiento de conjuros\\n- Lanzamiento ritual\\n- Recuperación arcana\\n- Remplazar el libro",
+        notes: "",
+        history: "",
+        featureDetails:
+          "Mago Nivel 3\\n\\n› Copiar un conjuro en el libro: Puedes añadir un conjuro a tu libro de conjuros.\\n\\n› Erudito de la evocación: El oro y el tiempo para copiar evocación se reducen a la mitad.\\n\\n› Esculpir conjuros: Puedes crear bolsas de relativa seguridad para los efectos de tus conjuros.\\n\\n› Lanzamiento de conjuros: Puedes lanzar conjuros arcanos utilizando tu inteligencia.\\n\\n› Lanzamiento ritual: Puedes lanzar cualquier conjuro de mago como ritual si cumple los requisitos.\\n\\n› Recuperación arcana: Una vez por día puedes recuperar espacios de conjuro.\\n\\n› Remplazar el libro: Puedes copiar un conjuro de tu libro en otro libro.",
+      };
+
+      function renderCharacter(data) {
+        document.querySelectorAll("[data-bind]").forEach((el) => {
+          const key = el.dataset.bind;
+          if (data[key] !== undefined && data[key] !== null) {
+            el.textContent = data[key];
+          }
+        });
+      }
+
+      function setCharacterImage(src) {
+        const img = document.getElementById("character-image");
+        const placeholder = document.getElementById("portrait-placeholder");
+        if (!src) return;
+
+        img.onload = () => {
+          img.style.display = "block";
+          placeholder.style.display = "none";
+        };
+        img.src = src;
+      }
+
+      renderCharacter(character);
+
+      // Ejemplo:
+      // setCharacterImage(character.image);
+
+      /*
+  Exportación:
+  - Cada .sheet es una página A4 fija.
+  - html2canvas NO intenta convertir todo el documento de golpe.
+  - Se captura página por página y jsPDF las coloca como A4.
+*/
+      async function exportCharacterSheet() {
+        const { jsPDF } = window.jspdf;
+        const pages = [...document.querySelectorAll(".sheet")];
+
+        await document.fonts.ready;
+
+        const pdf = new jsPDF({
+          orientation: "portrait",
+          unit: "mm",
+          format: "a4",
+          compress: true,
+        });
+
+        for (let i = 0; i < pages.length; i++) {
+          const canvas = await html2canvas(pages[i], {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: "#ffffff",
+            logging: false,
+            width: 794,
+            height: 1123,
+            windowWidth: 794,
+            windowHeight: 1123,
+          });
+
+          const image = canvas.toDataURL("image/png");
+
+          if (i > 0) pdf.addPage("a4", "portrait");
+
+          pdf.addImage(image, "PNG", 0, 0, 210, 297, undefined, "FAST");
+        }
+
+        pdf.save(`${character.name || "personaje"}-hoja.pdf`);
+      }
+    </script>
+
+    <!--
+  Si ya tienes html2canvas y jspdf instalados en Next.js:
+    import html2canvas from "html2canvas";
+    import { jsPDF } from "jspdf";
+
+  Y puedes reutilizar exactamente la función exportCharacterSheet(),
+  reemplazando window.html2canvas/window.jspdf por los imports.
+-->
+  </body>
+</html>
