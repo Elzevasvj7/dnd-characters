@@ -244,31 +244,26 @@ export async function parseCharacterSheetWithGemini(
   );
 
   const preferredModel = (process.env.GEMINI_MODEL || "gemini-2.5-flash").trim();
-  const fallbackModels = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"];
-  const candidateModels = Array.from(new Set([preferredModel, ...fallbackModels]));
 
   let lastError: unknown;
   let rawResponseText: string | null = null;
 
-  for (const model of candidateModels) {
-    try {
-      const response = await ai.models.generateContent({
-        model,
-        contents: [...fileParts, SYSTEM_PROMPT],
-        config: {
-          responseMimeType: "application/json",
-          temperature: 0,
-        },
-      });
 
-      if (response.text) {
-        rawResponseText = response.text;
-        break;
-      }
-    } catch (err) {
-      lastError = err;
-      continue;
+  try {
+    const response = await ai.models.generateContent({
+      model: preferredModel,
+      contents: [...fileParts, SYSTEM_PROMPT],
+      config: {
+        responseMimeType: "application/json",
+        temperature: 0,
+      },
+    });
+
+    if (response.text) {
+      rawResponseText = response.text;
     }
+  } catch (err) {
+    lastError = err;
   }
 
   if (!rawResponseText) {
