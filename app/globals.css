@@ -145,3 +145,30 @@
     letter-spacing: 0.04em;
   }
 }
+
+.sheet {
+  position: relative;
+  width: 794px;
+  height: 1123px;
+  background: #fff;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+.sheet:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+.handwriting {
+  font-family: "Comic Sans MS", "Segoe Print", cursive;
+  color: #0d48b8;
+}
+.no-export {
+  display: none !important;
+}
+@media print {
+  body {
+    padding: 0;
+    background: white;
+  }
+}

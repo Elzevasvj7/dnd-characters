@@ -11,7 +11,6 @@ export default async function CharacterListPage() {
   // Sin fetch y sin route handler: el Server Component llama al módulo, y el
   // módulo consulta Postgres. Nos ahorramos el salto HTTP entero.
   const characters = await listMyCharacters();
-
   return (
     <div className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">
       <div className="mb-8 flex items-center justify-between gap-4">
