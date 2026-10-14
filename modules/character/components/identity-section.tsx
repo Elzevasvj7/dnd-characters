@@ -22,6 +22,7 @@ type Identity = {
   playerName: string | null;
   experiencePoints: number | null;
   inspiration: boolean;
+  campaign: string | null;
 };
 
 export function IdentitySection({ character }: { character: Identity }) {
@@ -29,7 +30,7 @@ export function IdentitySection({ character }: { character: Identity }) {
   const { state, pending, submit } = useFormAction(updateIdentityAction, () =>
     setEditing(false),
   );
-
+  console.log("IdentitySection", character.campaign);
   return (
     <SectionCard
       title="Identidad"
@@ -103,6 +104,18 @@ export function IdentitySection({ character }: { character: Identity }) {
                 defaultValue={character.background ?? ""}
               />
             </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="campaign">Campaña</Label>
+              <select
+                id="campaign"
+                name="campaign"
+                className="flex h-9 w-full rounded-lg border border-input bg-transparent px-3 py-1 text-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                defaultValue={character.campaign ?? ""}
+              >
+                <option value="">Ninguna</option>
+                <option value="iron-and-ether">Iron and Ether</option>
+              </select>
+            </div>
           </div>
 
           <Label className="flex items-center gap-2 font-normal">
@@ -136,6 +149,7 @@ export function IdentitySection({ character }: { character: Identity }) {
             label="Inspiración"
             value={character.inspiration ? "Sí" : "No"}
           />
+          <ReadRow label="Campaña" value={character.campaign} />
         </div>
       )}
     </SectionCard>

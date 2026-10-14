@@ -4,9 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { CharacterListItem } from "../types";
 
-export function CharacterCard({ character }: { character: CharacterListItem }) {
+export function CharacterCard({ character, path }: { character: CharacterListItem, path?: string }) {
   return (
-    <Link href={`/character/${character.id}`} className="group block">
+    <Link href={path || `/character/${character.id}`} className="group block">
       <Card className="overflow-hidden py-0 transition-colors group-hover:border-ring">
         <div className="relative aspect-[4/3] w-full bg-muted">
           {character.imageUrl ? (
