@@ -1,6 +1,6 @@
 import "server-only";
 import type { PostgrestError } from "@supabase/supabase-js";
-import type { TablesUpdate } from "@/lib/supabase/database.types";
+import type { Enums, TablesUpdate } from "@/lib/supabase/database.types";
 import { createClient } from "@/lib/supabase/server";
 import { deleteCharacterImage, uploadCharacterImage } from "@/lib/storage";
 import { requireUser } from "@/modules/auth/queries";
@@ -38,7 +38,7 @@ export async function createCharacter(
   const user = await requireUser();
   const supabase = await createClient();
   const imagePath = image ? await uploadCharacterImage(user.id, image) : null;
-
+  console.log("abilitiesRow", abilitiesRow(input));
   const { data, error } = await supabase
     .from("characters")
     .insert({
@@ -46,6 +46,11 @@ export async function createCharacter(
       ...abilitiesRow(input),
       ...combatRow(input),
       ...proficienciesRow(input),
+      ...personalityRow(input),
+      ...appearanceRow(input),
+      ...loreRow(input),
+      ...currencyRow(input),
+      ...spellcastingRow(input),
       owner_id: user.id,
       image_path: imagePath,
     })
@@ -57,8 +62,86 @@ export async function createCharacter(
     await deleteCharacterImage(imagePath);
     throw new Error(error.message);
   }
+
+  // Insertar ataques si se incluyeron en la creación
+  if (input.attacksJson) {
+    try {
+      const attacks = JSON.parse(input.attacksJson);
+      if (Array.isArray(attacks) && attacks.length > 0) {
+        await supabase.from("attacks").insert(
+          attacks.map((a: { name: string; bonus?: string; damage?: string }) => ({
+            character_id: data.id,
+            name: a.name,
+            bonus: a.bonus || null,
+            damage: a.damage || null,
+          })),
+        );
+      }
+    } catch {
+      // Ignorar json inválido
+    }
+  }
+
+  // Insertar objetos del inventario si se incluyeron en la creación
+  if (input.itemsJson) {
+    try {
+      const items = JSON.parse(input.itemsJson);
+      if (Array.isArray(items) && items.length > 0) {
+        await supabase.from("inventory_items").insert(
+          items.map((i: { name: string; quantity?: number; weight?: number; description?: string }) => ({
+            character_id: data.id,
+            name: i.name,
+            quantity: i.quantity || 1,
+            weight: i.weight || null,
+            description: i.description || null,
+          })),
+        );
+      }
+    } catch {
+      // Ignorar json inválido
+    }
+  }
+
+  // Insertar conjuros si se incluyeron en la creación
+  if (input.spellsJson) {
+    try {
+      const spells = JSON.parse(input.spellsJson);
+      if (Array.isArray(spells) && spells.length > 0) {
+        await supabase.from("spells").insert(
+          spells.map((s: {
+            name: string;
+            level?: number;
+            school?: Enums<"SpellSchool"> | null;
+            castingTime?: string;
+            range?: string;
+            duration?: string;
+            components?: string;
+            concentration?: boolean;
+            ritual?: boolean;
+            description?: string;
+          }) => ({
+            character_id: data.id,
+            name: s.name,
+            level: s.level ?? 0,
+            school: s.school || null,
+            casting_time: s.castingTime || null,
+            range: s.range || null,
+            duration: s.duration || null,
+            components: s.components || null,
+            concentration: Boolean(s.concentration),
+            ritual: Boolean(s.ritual),
+            description: s.description || null,
+          })),
+        );
+      }
+    } catch {
+      // Ignorar json inválido
+    }
+  }
+
   return data;
 }
+
 
 export async function deleteCharacter(id: string): Promise<void> {
   const user = await requireUser();
@@ -210,6 +293,7 @@ function identityRow(input: IdentityInput) {
     player_name: input.playerName ?? null,
     experience_points: input.experiencePoints ?? null,
     inspiration: input.inspiration,
+    campaign: input.campaign ?? null,
   } satisfies TablesUpdate<"characters">;
 }
 
@@ -261,8 +345,59 @@ function proficienciesRow(input: ProficienciesInput) {
   } satisfies TablesUpdate<"characters">;
 }
 
+function personalityRow(input: PersonalityInput) {
+  return {
+    personality_traits: input.personalityTraits ?? null,
+    ideals: input.ideals ?? null,
+    bonds: input.bonds ?? null,
+    flaws: input.flaws ?? null,
+  } satisfies TablesUpdate<"characters">;
+}
+
+function appearanceRow(input: AppearanceInput) {
+  return {
+    height: input.height ?? null,
+    weight: input.weight ?? null,
+    eyes: input.eyes ?? null,
+    skin: input.skin ?? null,
+    hair: input.hair ?? null,
+  } satisfies TablesUpdate<"characters">;
+}
+
+function loreRow(input: LoreInput) {
+  return {
+    backstory: input.backstory ?? null,
+    allies_and_organizations: input.alliesAndOrganizations ?? null,
+    organization_name: input.organizationName ?? null,
+    features_and_traits: input.featuresAndTraits ?? null,
+    additional_features: input.additionalFeatures ?? null,
+    treasure: input.treasure ?? null,
+  } satisfies TablesUpdate<"characters">;
+}
+
+function currencyRow(input: CurrencyInput) {
+  return {
+    platinum: input.platinum,
+    gold: input.gold,
+    electrum: input.electrum,
+    silver: input.silver,
+    copper: input.copper,
+  } satisfies TablesUpdate<"characters">;
+}
+
+function spellcastingRow(input: SpellcastingInput) {
+  return {
+    spellcasting_class: input.spellcastingClass ?? null,
+    spellcasting_ability: input.spellcastingAbility ?? null,
+    spell_save_dc_override: input.spellSaveDcOverride ?? null,
+    spell_attack_bonus_override: input.spellAttackBonusOverride ?? null,
+  } satisfies TablesUpdate<"characters">;
+}
+
+
 export async function updateIdentity(characterId: string, input: IdentityInput) {
   const user = await requireUser();
+  console.log("updateIdentity", characterId, input, user.id);
   await updateOwned(characterId, user.id, identityRow(input));
 }
 

@@ -1,8 +1,9 @@
+"use server";
 import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import { getSignedImageUrl, getSignedImageUrls } from "@/lib/storage";
 import { requireUser } from "@/modules/auth/queries";
-import type { CharacterListItem } from "./types";
+import type { CharacterListItem, FormState } from "./types";
 
 // Las columnas viven en snake_case y la app en camelCase. En vez de convertir
 // a mano después, PostgREST renombra en el propio `select` con `alias:columna`,
@@ -48,7 +49,8 @@ const CHARACTER_COLUMNS = `
     concentration, ritual, prepared, description, createdAt:created_at
   ),
   attacks(id, characterId:character_id, name, bonus, damage, createdAt:created_at),
-  spellSlots:spell_slots(id, characterId:character_id, level, total, expended)
+  spellSlots:spell_slots(id, characterId:character_id, level, total, expended),
+  campaign
 `;
 
 /** Código de Postgres para "eso no es un UUID válido" (p. ej. /character/abc). */
@@ -60,11 +62,12 @@ export async function listMyCharacters(): Promise<CharacterListItem[]> {
 
   const { data: rows, error } = await supabase
     .from("characters")
-    .select("id, name, race, class, level, imagePath:image_path")
+    .select("id, name, race, class, level, imagePath:image_path, campaign")
     .eq("owner_id", user.id)
     .order("created_at", { ascending: false });
 
-  if (error) throw new Error(`No se pudieron cargar los personajes: ${error.message}`);
+  if (error)
+    throw new Error(`No se pudieron cargar los personajes: ${error.message}`);
 
   // Firmar N URLs con N llamadas sería un N+1 contra la API de Storage.
   const urls = await getSignedImageUrls(rows.map((row) => row.imagePath));
@@ -123,7 +126,42 @@ export async function getCharacter(id: string) {
     imageUrl: await getSignedImageUrl(imagePath),
   };
 }
-
+export async function getCharacterDownload(
+  id: string,
+): Promise<CharacterDetail | null> {
+  const supabase = await createClient();
+  const { data: character, error } = await supabase
+    .from("characters")
+    .select(CHARACTER_COLUMNS)
+    .eq("id", id)
+    .order("created_at", { referencedTable: "items", ascending: true })
+    .order("created_at", { referencedTable: "notes", ascending: false })
+    // Trucos primero (nivel 0) y alfabético dentro de cada nivel, que es
+    // como está ordenada la hoja de papel.
+    .order("level", { referencedTable: "spells", ascending: true })
+    .order("name", { referencedTable: "spells", ascending: true })
+    .order("created_at", { referencedTable: "attacks", ascending: true })
+    .order("level", { referencedTable: "spellSlots", ascending: true })
+    .maybeSingle();
+    if (error) {
+      if (error.code === INVALID_TEXT_REPRESENTATION) return null;
+      throw new Error(`No se pudo cargar el personaje: ${error.message}`);
+    }
+    if (!character) return null;
+  
+    const { imagePath, notes, ...rest } = character;
+    return {
+      ...rest,
+      // PostgREST devuelve las fechas como texto ISO; la ficha las formatea con
+      // `Intl.DateTimeFormat`, que necesita un `Date`.
+      notes: notes.map((note) => ({
+        ...note,
+        createdAt: new Date(note.createdAt),
+        updatedAt: new Date(note.updatedAt),
+      })),
+      imageUrl: await getSignedImageUrl(imagePath),
+    };
+}
 export type CharacterDetail = NonNullable<
   Awaited<ReturnType<typeof getCharacter>>
 >;

@@ -9,6 +9,9 @@ export const ACCEPTED_IMAGE_TYPES = [
   "image/webp",
 ] as const;
 
+/** Máximo de hojas (imágenes o PDFs) que se pueden enviar al OCR a la vez. */
+export const MAX_SHEET_FILES = 3;
+
 const ability = z.coerce.number().int().min(1).max(30).default(10);
 const optionalInt = (min: number, max: number) =>
   z.coerce.number().int().min(min).max(max).optional();
@@ -31,6 +34,7 @@ export const identitySchema = z.object({
   playerName: z.string().trim().max(80).optional(),
   experiencePoints: optionalInt(0, 999_999),
   inspiration: checkbox,
+  campaign: z.string().trim().max(60).optional(),
 });
 
 export const abilitiesSchema = z.object({
@@ -183,20 +187,6 @@ export const PROFICIENCY_LIST_KEYS = [
   "skillExpertise",
 ] as const;
 
-/**
- * El alta pide de una vez lo que en la ficha se edita por secciones: con las
- * características y las competencias delante, los bonos ya salen bien desde
- * el primer momento.
- */
-export const characterSchema = z.object({
-  ...identitySchema.shape,
-  ...abilitiesSchema.shape,
-  ...combatSchema.shape,
-  ...proficienciesSchema.shape,
-});
-
-export type CharacterInput = z.infer<typeof characterSchema>;
-
 export const personalitySchema = z.object({
   personalityTraits: z.string().trim().max(2000).optional(),
   ideals: z.string().trim().max(2000).optional(),
@@ -237,6 +227,28 @@ export const spellcastingSchema = z.object({
   spellSaveDcOverride: optionalInt(0, 40),
   spellAttackBonusOverride: optionalInt(-20, 20),
 });
+
+/**
+ * El alta pide de una vez lo que en la ficha se edita por secciones: con las
+ * características, competencias, personalidad, trasfondo, monedas y conjuros.
+ */
+export const characterSchema = z.object({
+  ...identitySchema.shape,
+  ...abilitiesSchema.shape,
+  ...combatSchema.shape,
+  ...proficienciesSchema.shape,
+  ...personalitySchema.shape,
+  ...appearanceSchema.shape,
+  ...loreSchema.shape,
+  ...currencySchema.shape,
+  ...spellcastingSchema.shape,
+  attacksJson: z.string().optional(),
+  itemsJson: z.string().optional(),
+  spellsJson: z.string().optional(),
+});
+
+export type CharacterInput = z.infer<typeof characterSchema>;
+
 
 export const attackSchema = z.object({
   characterId: z.uuid("Personaje inválido"),
