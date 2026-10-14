@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /** Rutas accesibles sin sesión. El resto redirige a /login. */
-const PUBLIC_ROUTES = ["/login", "/register", "/auth", "/ramdom"];
+const PUBLIC_ROUTES = ["/login", "/register", "/auth", "/ramdom", "/iron-and-ether", '/character/:id'];
 
 /**
  * En Next.js 16 esto es `proxy.ts`, no `middleware.ts` (mismo comportamiento,
