@@ -58,12 +58,10 @@ export async function getSignedImageUrls(
 ): Promise<Map<string, string>> {
   const unique = [...new Set(paths.filter((p): p is string => Boolean(p)))];
   if (unique.length === 0) return new Map();
-
   const supabase = await createClient();
   const { data, error } = await supabase.storage
     .from(CHARACTER_IMAGES_BUCKET)
     .createSignedUrls(unique, SIGNED_URL_TTL_SECONDS);
-
   if (error || !data) return new Map();
 
   // `createSignedUrls` tipa `path` y `signedUrl` como anulables (falla por
